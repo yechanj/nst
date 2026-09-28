@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2강 · 입원환자의 영양 Screening과 Assessment</title>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+
+  <div class="topbar">
+    <button class="hamburger" aria-label="목차 열기" aria-expanded="false"><span></span></button>
+    <div class="topbar__title">2강 · Screening &amp; Assessment</div>
+  </div>
+  <div class="scrim" aria-hidden="true"></div>
+
+  <div class="app">
+    <aside class="sidebar" aria-label="강의 목차">
+      <div class="sidebar__brand">
+        <div class="sidebar__logo">NST</div>
+        <div class="sidebar__title">NST 영양지원
+          <small>2강 · Screening &amp; Assessment</small>
+        </div>
+      </div>
+      <nav>
+        <ul class="toc">
+          <li><a href="#intro"><span class="num">1</span> 오늘의 환자</a></li>
+          <li><a href="#three-steps"><span class="num">2</span> Screening ≠ Assessment</a></li>
+          <li><a href="#weight-why"><span class="num">3</span> 체중 하나로 판단 못 하는 이유</a></li>
+          <li><a href="#bmi"><span class="num">4</span> BMI 계산</a></li>
+          <li><a href="#weight-loss"><span class="num">5</span> 체중감소 계산</a></li>
+          <li><a href="#intake"><span class="num">6</span> 섭취량 평가</a></li>
+          <li><a href="#albumin"><span class="num">7</span> Albumin 오해</a></li>
+          <li><a href="#muscle"><span class="num">8</span> Muscle &amp; Fat Loss</a></li>
+          <li><a href="#tools"><span class="num">9</span> Screening 도구</a></li>
+          <li><a href="#glim"><span class="num">10</span> GLIM 기준</a></li>
+          <li><a href="#pharm-view"><span class="num">11</span> Pharmacist View</a></li>
+          <li><a href="#case"><span class="num">12</span> Case Workshop</a></li>
+          <li><a href="#mistakes"><span class="num">13</span> 흔한 실수</a></li>
+          <li><a href="#summary"><span class="num">14</span> W-I-D-B 핵심 정리</a></li>
+        </ul>
+      </nav>
+      <a class="sidebar__back" href="../index.html">← 강의 목록으로</a>
+    </aside>
+
+    <div class="content">
+      <div class="wrap">
+
+        <header class="lesson-hero">
+          <div class="kicker">NST 영양지원 · 2강</div>
+          <h1>입원환자의 영양 Screening과 Assessment</h1>
+          <p>검사값 하나로 영양상태를 판단하지 않고, "이 환자가 영양불량인가?"를 체계적으로 판별하는 W-I-D-B 사고법을 익힙니다.</p>
+        </header>
+
+        <!-- ===== SECTION 1: 오늘의 환자 ===== -->
+        <section id="intro" class="section">
+          <h2><span class="sec-no">01</span> 오늘의 환자</h2>
+
+          <div class="patient-card">
+            <div class="patient-card__header">
+              <span class="patient-card__icon">👵</span>
+              <div>
+                <div class="patient-card__name">76세 여성</div>
+                <div class="patient-card__dx">Pneumonia로 입원</div>
+              </div>
+            </div>
+            <div class="patient-card__body">
+              <div class="patient-card__row"><span class="label">Height</span>158 cm</div>
+              <div class="patient-card__row"><span class="label">Current Wt</span>47 kg</div>
+              <div class="patient-card__row"><span class="label">Albumin</span><span style="color:var(--nst-alert);font-weight:700">2.4 g/dL ↓</span></div>
+            </div>
+          </div>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>출발 질문</div>
+            <p><strong>이 환자는 영양불량일까요?</strong></p>
+            <p>아마 처음 NST를 맡으면 albumin 2.4를 보고 곧바로 "영양불량"이라고 판단하고 싶을 겁니다. 하지만 그렇게 판단하면 <strong>안 됩니다</strong>.</p>
+          </div>
+
+          <p>이번 강의의 핵심은 <strong>검사값 하나로 영양상태를 판단하지 않고</strong>, "이 환자가 영양불량인가? 앞으로 악화될 위험이 있는가?"를 체계적으로 판별하는 방법입니다.</p>
+
+          <p style="font-size:14px;color:var(--ink-faint)">ASPEN은 성인 영양관리 과정을 screening → assessment → malnutrition diagnosis로 구분하고 있으며, NRS-2002, MST, MUST, MNA 등 여러 검증된 screening tool을 제시하고 있습니다. <cite class="ref">(ASPEN)</cite></p>
+        </section>
+
+        <!-- ===== SECTION 2: 세 단계 ===== -->
+        <section id="three-steps" class="section">
+          <h2><span class="sec-no">02</span> Screening ≠ Assessment ≠ Diagnosis</h2>
+
+          <p>가장 먼저 세 용어를 분리해야 합니다.</p>
+
+          <div class="funnel">
+            <div class="funnel-top">모든 입원환자</div>
+            <div class="funnel-arrow">↓</div>
+            <div class="funnel-step funnel-step--1">
+              <div class="funnel-step__label">SCREENING</div>
+              <div class="funnel-step__q">위험한 사람이 있는가?</div>
+            </div>
+            <div class="funnel-arrow">↓ 위험 발견</div>
+            <div class="funnel-step funnel-step--2">
+              <div class="funnel-step__label">ASSESSMENT</div>
+              <div class="funnel-step__q">실제 상태는 어떤가?</div>
+            </div>
+            <div class="funnel-arrow">↓</div>
+            <div class="funnel-step funnel-step--3">
+              <div class="funnel-step__label">DIAGNOSIS</div>
+              <div class="funnel-step__q">영양불량인가?</div>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <button class="accordion__btn"><strong>SCREENING</strong> — 빠르게 찾는다<span class="accordion__ico">▾</span></button>
+            <div class="accordion__body" hidden>
+              <p>"이 환자, 영양 문제가 있을 가능성이 있는가?" — 목적은 위험환자를 놓치지 않는 것입니다. 모든 환자에게 빠르게 적용할 수 있어야 합니다.</p>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <button class="accordion__btn"><strong>ASSESSMENT</strong> — 자세히 파악한다<span class="accordion__ico">▾</span></button>
+            <div class="accordion__body" hidden>
+              <p>Screening에서 위험이 발견됐거나 임상적으로 필요하면 훨씬 자세히 봅니다:</p>
+              <ul class="clean">
+                <li>체중 · 체중변화 · BMI</li>
+                <li>섭취량 · 기간</li>
+                <li>질환 · 염증 · GI 증상</li>
+                <li>근육/지방 손실 · 기능 상태</li>
+                <li>검사 수치 · 수분 상태</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <button class="accordion__btn"><strong>DIAGNOSIS</strong> — 판정한다<span class="accordion__ico">▾</span></button>
+            <div class="accordion__body" hidden>
+              <p>Assessment 정보를 종합해서 <strong>실제로 malnutrition으로 진단할 기준을 충족하는가?</strong>를 판단합니다. GLIM, SGA 등의 framework를 활용합니다.</p>
+            </div>
+          </div>
+
+          <div class="pearl">Screening은 "찾는 것", assessment는 "파악하는 것", diagnosis는 "판정하는 것"입니다.</div>
+        </section>
+
+        <!-- ===== SECTION 3: 왜 체중 하나로 판단 못 하는가 ===== -->
+        <section id="weight-why" class="section">
+          <h2><span class="sec-no">03</span> 왜 체중 하나로 판단할 수 없는가</h2>
+
+          <p>다음 두 환자를 비교해봅시다. BMI만 보고 누가 더 걱정될지 생각해보세요.</p>
+
+          <div class="compare-grid">
+            <div class="compare-card">
+              <div class="compare-card__label">환자 A</div>
+              <div class="compare-card__main">BMI 24.2</div>
+              <div class="compare-card__sub">170 cm / 70 kg</div>
+            </div>
+            <div class="compare-card">
+              <div class="compare-card__label">환자 B</div>
+              <div class="compare-card__main">BMI 18.0</div>
+              <div class="compare-card__sub">170 cm / 52 kg</div>
+            </div>
+          </div>
+
+          <button class="reveal-btn" data-target="compare-reveal">실제 정보 확인하기 ▾</button>
+          <div class="reveal-panel" id="compare-reveal" hidden>
+            <div class="compare-grid">
+              <div class="compare-card compare-card--concern">
+                <div class="compare-card__label">⚠️ 환자 A — 더 걱정됩니다</div>
+                <div class="compare-card__main">BMI 24.2</div>
+                <div class="compare-card__sub">
+                  평소 체중: <strong>88 kg</strong><br>
+                  3개월간 <strong>18 kg 감소 (20%↓)</strong><br>
+                  최근 식사량 감소
+                </div>
+              </div>
+              <div class="compare-card">
+                <div class="compare-card__label">환자 B — 상대적으로 안정적</div>
+                <div class="compare-card__main">BMI 18.0</div>
+                <div class="compare-card__sub">
+                  평소 체중: <strong>52 kg (동일)</strong><br>
+                  체중변화 없음<br>
+                  정상적인 식사 유지
+                </div>
+              </div>
+            </div>
+            <p>B는 BMI가 낮지만, A는 BMI가 정상인데도 체중의 <strong>20% 이상을 최근에 잃었습니다.</strong></p>
+          </div>
+
+          <div class="oneline">현재 체중뿐 아니라 "어떻게 이 체중이 되었는가?"를 봐야 합니다.</div>
+
+          <h3>NST 영양평가 5개 렌즈 — W-I-D-B(+F)</h3>
+          <p>환자를 처음 볼 때 다섯 가지 축으로 생각합니다. 2강에서 배울 내용이 모두 이 안에 있습니다.</p>
+
+          <div class="team-grid" style="grid-template-columns:1fr 1fr 1fr">
+            <div class="team-card team-card--doctor" style="border-top-color:var(--nst-energy)">
+              <div class="team-card__icon">⚖️</div>
+              <div class="team-card__role">① BODY</div>
+              <div class="team-card__desc">현재 체중 · 평소 체중 · 체중감소 · BMI</div>
+            </div>
+            <div class="team-card team-card--nurse" style="border-top-color:var(--nst-protein)">
+              <div class="team-card__icon">🍽️</div>
+              <div class="team-card__role">② INTAKE</div>
+              <div class="team-card__desc">얼마나, 얼마 동안, 왜 못 먹었나?</div>
+            </div>
+            <div class="team-card team-card--pharm" style="border-top-color:var(--nst-fluid)">
+              <div class="team-card__icon">🦠</div>
+              <div class="team-card__role">③ DISEASE</div>
+              <div class="team-card__desc">질환 · 급성/만성 · 염증 · 대사 stress</div>
+            </div>
+            <div class="team-card" style="border-top:3px solid var(--nst-elec)">
+              <div class="team-card__icon">💪</div>
+              <div class="team-card__role">④ BODY COMP.</div>
+              <div class="team-card__desc">근육 손실 · 지방 손실</div>
+            </div>
+            <div class="team-card" style="border-top:3px solid var(--ink-faint)">
+              <div class="team-card__icon">🖐️</div>
+              <div class="team-card__role">⑤ FUNCTION</div>
+              <div class="team-card__desc">기능 저하 · 악력 등</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== SECTION 4: BMI ===== -->
+        <section id="bmi" class="section">
+          <h2><span class="sec-no">04</span> BMI 계산</h2>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>공식</div>
+            <p style="text-align:center;font-size:18px;margin:8px 0">
+              BMI = Weight (kg) ÷ Height (m)²
+            </p>
+          </div>
+
+          <p>오늘의 환자: 158 cm / 47 kg</p>
+          <div class="figure">
+            <div class="figure__title">계산 예시</div>
+            <div style="text-align:center;font-size:17px;line-height:2">
+              BMI = 47 ÷ (1.58)² = 47 ÷ 2.4964 = <strong style="color:var(--nst-energy);font-size:20px">18.8 kg/m²</strong>
+            </div>
+          </div>
+
+          <h3>BMI Calculator</h3>
+
+          <div class="calculator" id="bmi-calc">
+            <div class="calculator__title">BMI 계산기</div>
+            <div class="calc-row">
+              <label>키</label>
+              <input class="calc-input" type="number" data-field="height" placeholder="158" min="100" max="220" />
+              <span class="calc-unit">cm</span>
+            </div>
+            <div class="calc-row">
+              <label>체중</label>
+              <input class="calc-input" type="number" data-field="weight" placeholder="47" min="20" max="300" />
+              <span class="calc-unit">kg</span>
+            </div>
+            <button class="calc-btn">계산하기</button>
+            <div class="calc-result" hidden></div>
+          </div>
+
+          <div class="card card--caution">
+            <div class="card__label"><span class="dot"></span>⚠️ BMI의 한계</div>
+            <p>BMI는 영양상태 평가의 <strong>한 요소</strong>일 뿐입니다. BMI가 정상이어도 상당한 체중감소가 있을 수 있고, BMI가 낮아도 최근 변화가 없는 환자가 있을 수 있습니다.</p>
+          </div>
+
+          <h3>어떤 체중을 계산에 사용하는가?</h3>
+          <div class="card card--pharm">
+            <div class="card__label"><span class="dot"></span>PHARMACIST HABIT</div>
+            <p>차트에서 체중을 보면 자동으로 묻습니다:</p>
+            <ul class="clean">
+              <li>Current weight vs Usual weight vs Admission weight?</li>
+              <li>Dry weight인가? — edema / ascites가 있는가?</li>
+              <li>이 체중을 그대로 계산에 써도 되는가?</li>
+            </ul>
+            <p style="font-size:13.5px;color:var(--ink-soft)">잘못된 체중을 넣으면 뒤의 Energy · Protein · GIR 계산 전체가 틀어집니다. 3강에서 본격적으로 다룹니다.</p>
+          </div>
+        </section>
+
+        <!-- ===== SECTION 5: 체중감소 ===== -->
+        <section id="weight-loss" class="section">
+          <h2><span class="sec-no">05</span> 체중감소 계산</h2>
+
+          <p>오늘의 환자, 3개월 전 체중이 54 kg이었다고 합시다.</p>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>공식</div>
+            <p style="text-align:center;font-size:16px;margin:8px 0">
+              체중감소(%) = (평소 체중 − 현재 체중) ÷ 평소 체중 × 100
+            </p>
+          </div>
+
+          <div class="figure">
+            <div class="figure__title">계산 예시</div>
+            <div style="text-align:center;font-size:17px;line-height:2.2">
+              (54 − 47) ÷ 54 × 100 = 7 ÷ 54 × 100 = <strong style="color:var(--nst-alert);font-size:20px">13.0%</strong>
+            </div>
+          </div>
+
+          <div class="card card--caution">
+            <div class="card__label"><span class="dot"></span>⚠️ 흔한 계산 실수 — 분모를 틀린다</div>
+            <div class="twopanel" style="margin-top:10px">
+              <div class="panel panel--wrong">
+                <h5>❌ 틀린 방법</h5>
+                <p style="font-size:15px">(54 − 47) ÷ <strong>47</strong> × 100 = 14.9%</p>
+                <p style="font-size:13px">현재 체중으로 나누면 안 됩니다.</p>
+              </div>
+              <div class="panel panel--right">
+                <h5>✓ 올바른 방법</h5>
+                <p style="font-size:15px">(54 − 47) ÷ <strong>54</strong> × 100 = 13.0%</p>
+                <p style="font-size:13px">평소(원래) 체중으로 나눕니다.</p>
+              </div>
+            </div>
+          </div>
+
+          <h3>Weight Loss Calculator</h3>
+
+          <div class="calculator" id="wtloss-calc">
+            <div class="calculator__title">체중감소 계산기</div>
+            <div class="calc-row">
+              <label>평소 체중</label>
+              <input class="calc-input" type="number" data-field="usual" placeholder="54" min="20" max="300" />
+              <span class="calc-unit">kg</span>
+            </div>
+            <div class="calc-row">
+              <label>현재 체중</label>
+              <input class="calc-input" type="number" data-field="current" placeholder="47" min="20" max="300" />
+              <span class="calc-unit">kg</span>
+            </div>
+            <div class="calc-row">
+              <label>기간</label>
+              <select class="calc-select" data-field="period">
+                <option value="1w">1주</option>
+                <option value="1m">1개월</option>
+                <option value="3m" selected>3개월</option>
+                <option value="6m">6개월</option>
+                <option value="1y">1년 이상</option>
+              </select>
+            </div>
+            <button class="calc-btn">계산하기</button>
+            <div class="calc-result" hidden></div>
+          </div>
+
+          <div class="card card--caution" style="margin-top:16px">
+            <div class="card__label"><span class="dot"></span>같은 10% 감소라도 기간이 다르다</div>
+            <p>1개월간 10% 감소와 2년간 10% 감소는 임상적 의미가 매우 다릅니다. 반드시 기간과 함께 평가합니다.</p>
+          </div>
+
+          <h3>체중이 거짓말하는 경우 — Edema / Ascites</h3>
+
+          <div class="card card--case">
+            <div class="card__label"><span class="dot"></span>CASE</div>
+            <p>간경변 환자: 평소 체중 65 kg → 현재 체중 <strong>68 kg</strong></p>
+            <p>"체중이 늘었네?" — 하지만 환자에게는 <strong>ascites</strong>와 <strong>leg edema</strong>가 심합니다.</p>
+            <p>실제로는 근육과 지방이 감소했는데 수분이 체중을 가리고 있습니다.</p>
+          </div>
+
+          <div class="oneline">Scale weight ≠ Nutritionally meaningful tissue</div>
+
+          <div class="legend">
+            <span class="chip chip--alert"><span class="sw"></span>Edema</span>
+            <span class="chip chip--alert"><span class="sw"></span>Ascites</span>
+            <span class="chip chip--alert"><span class="sw"></span>Aggressive fluid resuscitation</span>
+            <span class="chip chip--alert"><span class="sw"></span>Heart failure</span>
+            <span class="chip chip--alert"><span class="sw"></span>Renal failure</span>
+            <span class="chip chip--alert"><span class="sw"></span>CRRT</span>
+          </div>
+          <p style="font-size:14px">이런 상황에서는 체중만으로 판단하면 안 됩니다.</p>
+        </section>
+
+        <!-- ===== SECTION 6: 섭취량 ===== -->
+        <section id="intake" class="section">
+          <h2><span class="sec-no">06</span> 섭취량 평가</h2>
+
+          <div class="oneline">처방된 식이 ≠ 실제 제공량 ≠ 실제 섭취량</div>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>핵심 원칙</div>
+            <p>EMR에 "일반식"으로 기록되어 있어도 실제로 얼마나 먹었는지는 다른 문제입니다.</p>
+            <div class="compare-grid" style="margin-top:10px">
+              <div class="compare-card">
+                <div class="compare-card__label">환자 A</div>
+                <div class="compare-card__main" style="font-size:16px">일반식 90% 섭취</div>
+                <div class="compare-card__sub">EMR: "일반식"</div>
+              </div>
+              <div class="compare-card compare-card--concern">
+                <div class="compare-card__label">환자 B</div>
+                <div class="compare-card__main" style="font-size:16px">일반식 20% 섭취</div>
+                <div class="compare-card__sub">EMR: "일반식"</div>
+              </div>
+            </div>
+          </div>
+
+          <p>PN도, EN도 마찬가지입니다. Feeding interruption이 반복되면 목표 1,500 kcal로 처방되어 있어도 실제로는 900 kcal만 들어갔을 수 있습니다.</p>
+
+          <h3>섭취가 감소하는 이유를 찾는다</h3>
+          <p>"식사를 안 함"이라고 적으면 부족합니다. 왜 안 먹는지 찾아야 intervention이 가능합니다.</p>
+
+          <div class="accordion">
+            <button class="accordion__btn">GI 문제<span class="accordion__ico">▾</span></button>
+            <div class="accordion__body" hidden>
+              <p>Nausea · vomiting · diarrhea · constipation · ileus · abdominal pain</p>
+            </div>
+          </div>
+          <div class="accordion">
+            <button class="accordion__btn">기계적 문제 (삼킴 장애 등)<span class="accordion__ico">▾</span></button>
+            <div class="accordion__body" hidden>
+              <p>Dysphagia · chewing difficulty · tube problem (EN의 경우)</p>
+            </div>
+          </div>
+          <div class="accordion">
+            <button class="accordion__btn">질환/치료 관련<span class="accordion__ico">▾</span></button>
+            <div class="accordion__body" hidden>
+              <p>Infection · cancer · surgery · respiratory distress · NPO for procedure · chemotherapy · medications</p>
+            </div>
+          </div>
+          <div class="accordion">
+            <button class="accordion__btn">Neuro/정신/환경<span class="accordion__ico">▾</span></button>
+            <div class="accordion__body" hidden>
+              <p>Delirium · dementia · depression · feeding assistance 부족 · 식사 시간에 검사/처치</p>
+            </div>
+          </div>
+
+          <div class="pearl">"Poor intake"는 diagnosis가 아니라 현상입니다. 원인을 찾아야 intervention이 가능합니다.</div>
+        </section>
+
+        <!-- ===== SECTION 7: Albumin ===== -->
+        <section id="albumin" class="section">
+          <h2><span class="sec-no">07</span> Albumin — 가장 중요한 오해</h2>
+
+          <p>다시 처음 환자로 돌아갑니다. Albumin 2.4 g/dL만으로 "중증 영양불량"이라고 판단할 수 있을까요?</p>
+
+          <div class="card card--caution">
+            <div class="card__label"><span class="dot"></span>🚫 NO</div>
+            <p>ASPEN은 albumin과 prealbumin 같은 visceral proteins를 영양상태를 직접 나타내는 marker로 사용하는 것을 지지하지 않습니다. 이러한 단백질의 감소는 <strong>염증과 질병 severity</strong> 등의 영향을 크게 받으며, muscle protein mass나 total body protein을 직접 반영하지 않습니다. <cite class="ref">(ASPEN)</cite></p>
+          </div>
+
+          <h3>Albumin이 낮아지는 이유</h3>
+          <div class="figure">
+            <div class="figure__title">Low Albumin의 원인들</div>
+            <div class="team-grid">
+              <div class="team-card team-card--doctor" style="border-top-color:var(--nst-alert)">
+                <div class="team-card__icon">🔥</div>
+                <div class="team-card__role">Inflammation</div>
+                <div class="team-card__desc">CRP 상승 · acute phase response · IL-6 등</div>
+              </div>
+              <div class="team-card team-card--nurse" style="border-top-color:var(--nst-fluid)">
+                <div class="team-card__icon">💧</div>
+                <div class="team-card__role">Fluid status</div>
+                <div class="team-card__desc">Dilution effect · edema · fluid overload</div>
+              </div>
+              <div class="team-card team-card--dietitian" style="border-top-color:var(--nst-energy)">
+                <div class="team-card__icon">🏥</div>
+                <div class="team-card__role">Disease</div>
+                <div class="team-card__desc">Liver dysfunction · nephrotic syndrome · critical illness</div>
+              </div>
+              <div class="team-card team-card--pharm" style="border-top-color:var(--ink-faint)">
+                <div class="team-card__icon">📉</div>
+                <div class="team-card__role">영양 결핍 (간접적)</div>
+                <div class="team-card__desc">심한 prolonged malnutrition에서 기여 가능 — 단독 marker로 쓸 수 없음</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="thinking-compare">
+            <div class="thinking-box thinking-box--wrong">
+              <div class="thinking-box__title">❌ 잘못된 해석</div>
+              <div class="thinking-step">Albumin 2.2</div>
+              <div class="thinking-step">→ severe malnutrition</div>
+            </div>
+            <div class="thinking-box thinking-box--nst">
+              <div class="thinking-box__title">✓ 올바른 해석</div>
+              <div class="thinking-step">Albumin 2.2</div>
+              <div class="thinking-step">+ pneumonia + 전신 염증</div>
+              <div class="thinking-step">→ 체중감소·섭취감소 별도 평가 필요</div>
+            </div>
+          </div>
+
+          <h3>CRP와 Albumin을 같이 본다면?</h3>
+          <div class="card card--nst">
+            <div class="card__label"><span class="dot"></span>NST 사고</div>
+            <div class="table-wrap">
+              <table class="lab-table">
+                <tbody>
+                  <tr class="lab-high"><td>CRP</td><td>18 mg/dL ↑↑</td></tr>
+                  <tr class="lab-low"><td>Albumin</td><td>2.3 g/dL ↓</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>이 상황에서 "albumin이 낮으니 단백질을 더 주면 올라가겠지"처럼 접근하면 위험합니다. 강한 inflammatory response 자체가 albumin 감소에 영향을 줄 수 있습니다.</p>
+          </div>
+
+          <div class="pearl">Albumin은 "nutrition gauge"가 아니라 clinical context의 일부로 보세요.</div>
+        </section>
+
+        <!-- ===== SECTION 8: Muscle / Fat Loss ===== -->
+        <section id="muscle" class="section">
+          <h2><span class="sec-no">08</span> Muscle &amp; Fat Loss — 신체소견</h2>
+
+          <p>체중만으로 놓칠 수 있는 영역입니다. 체중 변화가 거의 없어도 temporal wasting · prominent clavicle · interosseous muscle loss 등이 관찰될 수 있습니다.</p>
+
+          <div class="twopanel">
+            <div class="panel" style="background:var(--nst-protein-soft);border-color:var(--nst-protein)">
+              <h5 style="color:var(--nst-protein)">근육 평가 부위</h5>
+              <ul style="font-size:14px;padding-left:18px">
+                <li>Temple (측두근)</li>
+                <li>Clavicle (쇄골)</li>
+                <li>Shoulder (어깨)</li>
+                <li>Scapula (견갑골)</li>
+                <li>Interosseous muscle (손등)</li>
+                <li>Thigh (허벅지)</li>
+                <li>Calf (종아리)</li>
+              </ul>
+            </div>
+            <div class="panel" style="background:var(--nst-energy-soft);border-color:var(--nst-energy)">
+              <h5 style="color:var(--nst-energy)">지방 평가 부위</h5>
+              <ul style="font-size:14px;padding-left:18px">
+                <li>Orbital (눈 아래)</li>
+                <li>Triceps (삼두근)</li>
+                <li>Rib region (옆구리)</li>
+              </ul>
+            </div>
+          </div>
+
+          <p style="font-size:14px;color:var(--ink-faint)">ASPEN의 malnutrition assessment 자료 역시 muscle/fat loss와 nutrition-focused physical examination(NFPE)을 중요한 평가 영역으로 다룹니다. <cite class="ref">(ASPEN)</cite></p>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>비만에서의 함정</div>
+            <p>BMI 31인 환자도 malnutrition이 공존할 수 있습니다. 체지방이 많다는 것은:</p>
+            <ul class="clean">
+              <li>충분한 단백질을 섭취하는 것과 다릅니다</li>
+              <li>muscle mass가 유지되는 것과 다릅니다</li>
+              <li>최근 catabolism이 없는 것과 다릅니다</li>
+            </ul>
+            <p>평소 105 kg → 현재 85 kg (4개월간 20 kg 비의도적 감소)라면, BMI 29라도 malnutrition을 의심해야 합니다.</p>
+          </div>
+        </section>
+
+        <!-- ===== SECTION 9: Screening 도구 ===== -->
+        <section id="tools" class="section">
+          <h2><span class="sec-no">09</span> Screening 도구 비교</h2>
+
+          <p>모든 입원환자를 영양사가 처음부터 30분씩 assessment할 수는 없습니다. Screening 도구로 빠르게 위험환자를 골라냅니다.</p>
+
+          <div class="table-wrap">
+            <table class="lab-table">
+              <thead>
+                <tr><th>도구</th><th>주요 활용</th><th>특징</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>NRS-2002</strong></td><td>입원환자</td><td>영양상태 + 질환 severity 조합</td></tr>
+                <tr><td><strong>MST</strong></td><td>다양한 입원 환경</td><td>2문항으로 빠른 screening</td></tr>
+                <tr><td><strong>MUST</strong></td><td>성인 (다양한 setting)</td><td>BMI + 체중감소 + acute disease</td></tr>
+                <tr><td><strong>MNA</strong></td><td>노인 중심</td><td>65세 이상에 특화</td></tr>
+                <tr><td><strong>SGA</strong></td><td>Assessment 도구</td><td>임상 종합 평가, subjective</td></tr>
+                <tr><td><strong>GLIM</strong></td><td>Malnutrition 진단</td><td>진단 framework</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>NRS-2002 구조 — 이해하기</h3>
+          <p>숫자를 외우기보다 무엇을 보는 도구인지 먼저 이해합니다.</p>
+
+          <div class="twopanel">
+            <div class="panel" style="background:var(--nst-energy-soft);border-color:var(--nst-energy)">
+              <h5 style="color:var(--nst-energy)">영양상태 축</h5>
+              <ul style="font-size:14px;padding-left:18px">
+                <li>BMI</li>
+                <li>최근 체중감소</li>
+                <li>최근 섭취 감소</li>
+              </ul>
+            </div>
+            <div class="panel" style="background:var(--nst-fluid-soft);border-color:var(--nst-fluid)">
+              <h5 style="color:var(--nst-fluid)">질환 severity 축</h5>
+              <ul style="font-size:14px;padding-left:18px">
+                <li>질병이 영양 요구와 대사에 얼마나 영향을 주는가?</li>
+                <li>+ 70세 이상 추가 고려</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="oneline">"얼마나 못 먹고/빠졌는가?" + "질병 stress가 얼마나 큰가?"</div>
+
+          <div class="card card--caution">
+            <div class="card__label"><span class="dot"></span>ICU에서는 주의</div>
+            <p>ESPEN ICU 가이드라인은 ICU에서 48시간 이상 머무는 모든 중환자를 malnutrition risk가 있는 것으로 간주할 것을 제시하며, NRS-2002와 MUST는 ICU에 특화되어 개발된 도구가 아닙니다.</p>
+            <p style="font-size:13.5px;color:var(--ink-faint)">ICU nutrition은 13강에서 집중적으로 다룹니다.</p>
+          </div>
+
+          <div class="card card--caution">
+            <div class="card__label"><span class="dot"></span>Screening ≠ Diagnosis</div>
+            <p>Screen positive(예: NRS-2002 ≥ 3)는 "위험이 있다"는 신호입니다. 영양불량을 확진한 것이 아닙니다. Assessment → Diagnosis 과정이 필요합니다.</p>
+          </div>
+        </section>
+
+        <!-- ===== SECTION 10: GLIM ===== -->
+        <section id="glim" class="section">
+          <h2><span class="sec-no">10</span> GLIM — 영양불량 진단 Framework</h2>
+
+          <p>GLIM(Global Leadership Initiative on Malnutrition)은 malnutrition diagnosis를 위한 현대적인 framework입니다. ASPEN의 현재 malnutrition diagnosis 자료에서도 GLIM criteria를 주요 성인 영양불량 진단 자료로 제시합니다. <cite class="ref">(ASPEN)</cite></p>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>핵심 구조</div>
+            <p style="font-size:16px;text-align:center;margin:8px 0">
+              <strong style="color:var(--nst-protein)">Phenotypic criterion ≥ 1</strong>
+              &nbsp;+&nbsp;
+              <strong style="color:var(--nst-fluid)">Etiologic criterion ≥ 1</strong>
+            </p>
+          </div>
+
+          <div class="glim-grid">
+            <div class="glim-col glim-col--phenotypic">
+              <div class="glim-col__title">Phenotypic — 몸에 나타난 결과</div>
+              <label class="glim-check glim-pheno"><input type="checkbox"> 체중감소 (6개월 &lt; 5%, 6개월 ≥ 10%)</label>
+              <label class="glim-check glim-pheno"><input type="checkbox"> 낮은 BMI (70세 미만 &lt;20, 70세 이상 &lt;22)</label>
+              <label class="glim-check glim-pheno"><input type="checkbox"> 근육량 감소 (NFPE 등)</label>
+            </div>
+            <div class="glim-col glim-col--etiologic">
+              <div class="glim-col__title">Etiologic — 왜 그렇게 되었는가</div>
+              <label class="glim-check glim-etio"><input type="checkbox"> 섭취/흡수 감소 (50% 이상 2주 초과, 만성 감소 등)</label>
+              <label class="glim-check glim-etio"><input type="checkbox"> 질환 부담 / 염증 (급성/만성 질환)</label>
+            </div>
+          </div>
+
+          <div class="glim-result" id="glim-result">기준을 선택하면 결과가 표시됩니다.</div>
+
+          <h3>오늘의 환자에 적용하면?</h3>
+          <div class="card card--case">
+            <div class="card__label"><span class="dot"></span>76세 여성 GLIM 평가</div>
+            <div class="twopanel">
+              <div class="panel" style="background:var(--nst-protein-soft);border-color:var(--nst-protein)">
+                <h5 style="color:var(--nst-protein)">Phenotypic ✓</h5>
+                <ul style="font-size:14px;padding-left:18px">
+                  <li>체중 13% 감소 (3개월)</li>
+                  <li>BMI 18.8 (70세 이상 &lt;22 기준)</li>
+                </ul>
+              </div>
+              <div class="panel" style="background:var(--nst-fluid-soft);border-color:var(--nst-fluid)">
+                <h5 style="color:var(--nst-fluid)">Etiologic ✓</h5>
+                <ul style="font-size:14px;padding-left:18px">
+                  <li>지속적 섭취감소</li>
+                  <li>Pneumonia / inflammation</li>
+                </ul>
+              </div>
+            </div>
+            <p>→ 기준 충족. <strong>Malnutrition을 강하게 의심</strong>하고 정식 평가 진행.</p>
+          </div>
+
+          <h3>GLIM vs Screening 도구 — 경쟁관계가 아니다</h3>
+          <div class="flow">
+            <div class="flow-step">
+              <div class="flow-step__no">①</div>
+              <div class="flow-step__body"><strong>입원</strong><p>모든 환자 대상</p></div>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">
+              <div class="flow-step__no">②</div>
+              <div class="flow-step__body"><strong>SCREENING (예: NRS-2002)</strong><p>위험환자 찾기 — 빠르게</p></div>
+            </div>
+            <div class="flow-arrow">↓ 위험 있음</div>
+            <div class="flow-step">
+              <div class="flow-step__no">③</div>
+              <div class="flow-step__body"><strong>Detailed Assessment</strong><p>W-I-D-B 전체 평가</p></div>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">
+              <div class="flow-step__no">④</div>
+              <div class="flow-step__body"><strong>DIAGNOSIS (예: GLIM)</strong><p>Malnutrition 진단 framework</p></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== SECTION 11: Pharmacist View ===== -->
+        <section id="pharm-view" class="section">
+          <h2><span class="sec-no">11</span> Pharmacist View — 왜 약사도 알아야 하는가</h2>
+
+          <p>상세한 nutrition assessment는 영양사가 주도하는 병원도 많습니다. 그렇다고 약사가 "영양상태는 영양사 영역"이라고 넘겨버리면 안 됩니다.</p>
+
+          <div class="card card--pharm">
+            <div class="card__label"><span class="dot"></span>이 정보를 모르면 놓치는 것들</div>
+            <div class="card card--caution" style="margin-top:10px">
+              <div class="card__label"><span class="dot"></span>CASE</div>
+              <p>최근 15% weight loss + 7일간 minimal intake + P 2.0 + PN 시작 예정</p>
+              <p>이 정보를 모르면 <strong>refeeding syndrome 위험</strong>을 놓칠 수 있습니다.</p>
+            </div>
+            <p>또 severe malnutrition + poor intake를 모르고 있으면, PN/EN을 검토할 때 현재 공급 부족의 임상적 중요성을 제대로 평가하기 어렵습니다.</p>
+          </div>
+
+          <h3>Nutrition Snapshot — 약사가 최소한 채워야 할 6줄</h3>
+          <p>새 NST 환자를 열었을 때 이 여섯 줄을 채우면 환자의 그림이 선명해집니다.</p>
+
+          <div class="snapshot-card">
+            <div class="snapshot-card__title">NUTRITION SNAPSHOT — 76F, Pneumonia</div>
+            <div class="snapshot-row"><span class="label">HEIGHT</span>158 cm</div>
+            <div class="snapshot-row"><span class="label">WEIGHT</span>47 kg (BMI 18.8)</div>
+            <div class="snapshot-row"><span class="label">WEIGHT LOSS</span>54 → 47 kg / 3개월 = <strong>13%</strong></div>
+            <div class="snapshot-row"><span class="label">INTAKE</span>평소의 30~40% / 약 2주 이상</div>
+            <div class="snapshot-row"><span class="label">DISEASE</span>Pneumonia + 전신 염증 (CRP 12)</div>
+            <div class="snapshot-row"><span class="label">BODY COMP.</span>Mild temporal wasting, lower extremity edema</div>
+            <div class="snapshot-alert">⚠ Nutritional risk identified — Detailed assessment required</div>
+          </div>
+        </section>
+
+        <!-- ===== SECTION 12: Case Workshop ===== -->
+        <section id="case" class="section">
+          <h2><span class="sec-no">12</span> Case Workshop — 76F 전체 정보</h2>
+
+          <p>환자 정보가 확장됩니다. 단계별로 생각한 뒤 펼쳐보세요.</p>
+
+          <div class="patient-card">
+            <div class="patient-card__header">
+              <span class="patient-card__icon">👵</span>
+              <div>
+                <div class="patient-card__name">76세 여성 / 158 cm / 47 kg</div>
+                <div class="patient-card__dx">Pneumonia · Hospital day 4</div>
+              </div>
+            </div>
+            <div class="patient-card__body">
+              <div class="patient-card__section">
+                <div class="patient-card__section-title">WEIGHT HISTORY</div>
+                <div class="patient-card__row"><span class="label">평소 체중</span><strong>54 kg (3개월 전)</strong></div>
+                <div class="patient-card__row"><span class="label">체중감소</span><strong style="color:var(--nst-alert)">7 kg · 13% / 3개월</strong></div>
+              </div>
+              <div class="patient-card__section">
+                <div class="patient-card__section-title">INTAKE HISTORY</div>
+                <div class="patient-card__row"><span class="label">입원 전 1개월</span>식욕 크게 감소</div>
+                <div class="patient-card__row"><span class="label">입원 전 2주</span>평소의 30~40%</div>
+                <div class="patient-card__row"><span class="label">HD1–2</span>NPO</div>
+                <div class="patient-card__row"><span class="label">HD3</span>죽 20%</div>
+                <div class="patient-card__row"><span class="label">HD4</span>죽 30%</div>
+              </div>
+              <div class="patient-card__section">
+                <div class="patient-card__section-title">PHYSICAL</div>
+                <div class="patient-card__row"><span class="label">Muscle</span>Mild temporal wasting</div>
+                <div class="patient-card__row"><span class="label">Fluid</span>Mild lower-extremity edema</div>
+              </div>
+              <div class="patient-card__section">
+                <div class="patient-card__section-title">LABORATORY</div>
+                <div class="patient-card__row"><span class="label">Albumin</span><span style="color:var(--nst-alert);font-weight:700">2.4 g/dL ↓</span></div>
+                <div class="patient-card__row"><span class="label">CRP</span><span style="color:var(--nst-energy);font-weight:700">12 mg/dL ↑</span></div>
+                <div class="patient-card__row"><span class="label">Na / K</span>137 / 3.5 mEq/L</div>
+                <div class="patient-card__row"><span class="label">P</span>2.7 mg/dL</div>
+                <div class="patient-card__row"><span class="label">Cr</span>0.9 mg/dL</div>
+              </div>
+            </div>
+          </div>
+
+          <h3>Timeline — Trend로 읽기</h3>
+          <div class="timeline">
+            <div class="tl-item tl-item--warn">
+              <div class="tl-item__time">3개월 전</div>
+              <div class="tl-item__body"><strong>54 kg</strong> — 평소 체중</div>
+            </div>
+            <div class="tl-item tl-item--warn">
+              <div class="tl-item__time">1개월 전 ~</div>
+              <div class="tl-item__body">식욕 저하 시작 — 체중 감소 중</div>
+            </div>
+            <div class="tl-item tl-item--alert">
+              <div class="tl-item__time">입원 2주 전 ~</div>
+              <div class="tl-item__body"><strong>평소의 30~40%</strong>만 섭취</div>
+            </div>
+            <div class="tl-item tl-item--alert">
+              <div class="tl-item__time">입원 당일 (HD1)</div>
+              <div class="tl-item__body"><strong>47 kg</strong> — 체중 13% 감소 / NPO</div>
+            </div>
+            <div class="tl-item tl-item--alert">
+              <div class="tl-item__time">HD2</div>
+              <div class="tl-item__body">NPO 지속</div>
+            </div>
+            <div class="tl-item tl-item--warn">
+              <div class="tl-item__time">HD3</div>
+              <div class="tl-item__body">죽 시작 — 20% 섭취</div>
+            </div>
+            <div class="tl-item tl-item--warn">
+              <div class="tl-item__time">HD4 (오늘)</div>
+              <div class="tl-item__body">죽 30% 섭취</div>
+            </div>
+          </div>
+
+          <div class="oneline">오늘 밥을 30% 먹었다는 단일 데이터보다, 수개월간 지속적으로 영양상태가 악화되고 있다는 사실이 훨씬 중요합니다.</div>
+
+          <div class="case-step" style="margin-top:20px">
+            <p><strong>Q1. What do you see? — 중요하다고 생각되는 정보를 먼저 정리해보세요.</strong></p>
+            <button class="reveal-btn">생각한 뒤 펼치기 ▾</button>
+            <div class="reveal-panel" hidden>
+              <div class="legend">
+                <span class="chip chip--alert"><span class="sw"></span>비의도적 체중감소 13%</span>
+                <span class="chip chip--alert"><span class="sw"></span>지속적 섭취감소 2주 이상</span>
+                <span class="chip chip--alert"><span class="sw"></span>낮은 BMI 18.8</span>
+                <span class="chip chip--energy"><span class="sw"></span>Temporal wasting</span>
+                <span class="chip chip--energy"><span class="sw"></span>Edema (체중 해석 주의)</span>
+                <span class="chip chip--fluid"><span class="sw"></span>Inflammatory disease (CRP↑)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="case-step" style="margin-top:20px">
+            <p><strong>Q2. 영양불량이라고 판단한 가장 중요한 이유는?</strong></p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0">
+              <button class="why-btn" data-why="qcase-a">A. Albumin 2.4</button>
+              <button class="why-btn" data-why="qcase-b">B. CRP 12</button>
+              <button class="why-btn" data-why="qcase-c">C. 체중감소 + 섭취감소 + 신체소견 + 질환</button>
+              <button class="why-btn" data-why="qcase-d">D. 나이 76세</button>
+            </div>
+            <div class="why-panel" id="qcase-a" hidden>
+              <div class="card card--caution"><div class="card__label"><span class="dot"></span>❌ 오답</div><p>Albumin은 염증·질환 severity 등의 영향을 크게 받으므로 malnutrition을 단독으로 진단하는 marker가 아닙니다. <cite class="ref">(ASPEN)</cite></p></div>
+            </div>
+            <div class="why-panel" id="qcase-b" hidden>
+              <div class="card card--caution"><div class="card__label"><span class="dot"></span>❌ 오답</div><p>CRP 상승은 염증의 지표입니다. 영양불량의 직접적인 진단 기준이 아닙니다.</p></div>
+            </div>
+            <div class="why-panel" id="qcase-c" hidden>
+              <div class="card card--pharm"><div class="card__label"><span class="dot"></span>✓ 정답</div><p>체중감소 (Phenotypic) + 섭취감소·질환 (Etiologic) + 신체소견이 종합되어야 합니다. 이것이 GLIM의 구조이기도 합니다.</p></div>
+            </div>
+            <div class="why-panel" id="qcase-d" hidden>
+              <div class="card card--caution"><div class="card__label"><span class="dot"></span>❌ 오답</div><p>나이 자체가 영양불량을 진단하는 기준은 아닙니다. 다만 고령에서 malnutrition 위험이 더 높을 수 있고 MNA 같은 도구 사용을 고려할 수 있습니다.</p></div>
+            </div>
+          </div>
+
+          <div class="case-step" style="margin-top:20px">
+            <p><strong>Q3. Problem List</strong></p>
+            <button class="reveal-btn">생각한 뒤 펼치기 ▾</button>
+            <div class="reveal-panel" hidden>
+              <ul class="clean">
+                <li><strong>P1.</strong> High nutritional risk / probable malnutrition</li>
+                <li><strong>P2.</strong> 상당한 비의도적 체중감소 (13% / 3개월)</li>
+                <li><strong>P3.</strong> 장기간 불충분한 섭취 (입원 전 + 입원 후)</li>
+                <li><strong>P4.</strong> Muscle loss 의심 (temporal wasting)</li>
+                <li><strong>P5.</strong> Acute inflammatory disease (pneumonia)</li>
+                <li><strong>P6.</strong> Mild edema — 체중 해석 시 주의</li>
+              </ul>
+              <p>여기까지 하면 자연스럽게 다음 질문이 생깁니다:<br>
+              <strong>"그래서 이 환자에게 하루에 몇 kcal와 몇 g의 단백질을 줘야 하지?"</strong><br>
+              → 3강에서 다룹니다.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== SECTION 13: 흔한 실수 ===== -->
+        <section id="mistakes" class="section">
+          <h2><span class="sec-no">13</span> 흔한 초보 실수 6가지</h2>
+
+          <div class="accordion">
+            <button class="accordion__btn">⚠️ Mistake 1 — Albumin을 영양상태 점수처럼 사용<span class="accordion__ico">▾</span></button>
+            <div class="accordion__body" hidden>
+              <div class="thinking-compare">
+                <div class="thinking-box thinking-box--wrong"><div class="thinking-box__title">❌</div><div class="thinking-step">Albumin 2.0 → 심한 영양불량</div></div>
+                <div class="thinking-box thinking-box--nst"><div class="thinking-box__title">✓</div><div class="thinking-step">체중·섭취·질환·신체소견을 종합 평가</div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <button class="accordion__btn">⚠️ Mistake 2 — BMI만 본다<span class="accordion__ico">▾</span></button>
+            <div class="accordion__body" hidden>
+              <p>BMI 25 → "영양불량 없음"이라고 결론 내리면 안 됩니다. 최근 체중감소가 없었는지 반드시 확인해야 합니다.</p>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <button class="accordion__btn">⚠️ Mistake 3 — 현재 체중만 본다<span class="accordion__ico">▾</span></button>
+            <div class="accordion__body" hidden>
+              <p>현재 70 kg 보다 <strong>"3개월 전 84 kg → 현재 70 kg"</strong>이 훨씬 중요한 정보일 수 있습니다. Trend를 봐야 합니다.</p>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <button class="accordion__btn">⚠️ Mistake 4 — "식사 중"이라는 기록만 본다<span class="accordion__ico">▾</span></button>
+            <div class="accordion__body" hidden>
+              <p>EMR에 "일반식"이 기록되어 있어도 실제 섭취량은 20%일 수 있습니다. 처방량 ≠ 실제 섭취량입니다.</p>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <button class="accordion__btn">⚠️ Mistake 5 — Edema / Ascites를 무시한다<span class="accordion__ico">▾</span></button>
+            <div class="accordion__body" hidden>
+              <p>Scale weight가 실제 tissue 상태를 가릴 수 있습니다. 체중이 유지되거나 증가했어도 근육·지방이 줄고 수분이 늘었을 수 있습니다.</p>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <button class="accordion__btn">⚠️ Mistake 6 — Screening 결과를 Diagnosis로 생각한다<span class="accordion__ico">▾</span></button>
+            <div class="accordion__body" hidden>
+              <p>NRS-2002 high risk = "위험이 있다"는 신호입니다. 영양불량을 확진한 것이 아닙니다. Assessment → Diagnosis 과정이 반드시 필요합니다.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== SECTION 14: 핵심 정리 ===== -->
+        <section id="summary" class="section">
+          <h2><span class="sec-no">14</span> 2강 핵심 정리 — W-I-D-B</h2>
+
+          <p>환자의 영양상태를 볼 때 앞으로 이 네 글자를 떠올리세요.</p>
+
+          <div class="widb">
+            <div class="widb-item">
+              <div class="widb-badge widb-badge--w">W</div>
+              <div class="widb-body">
+                <strong>WEIGHT — 체중</strong>
+                <ul>
+                  <li>현재 체중은? 평소 체중은?</li>
+                  <li>얼마나 빠졌나? — 기간과 함께</li>
+                  <li>Fluid 때문에 왜곡되지 않았나?</li>
+                </ul>
+              </div>
+            </div>
+            <div class="widb-item">
+              <div class="widb-badge widb-badge--i">I</div>
+              <div class="widb-body">
+                <strong>INTAKE — 섭취량</strong>
+                <ul>
+                  <li>얼마나 먹었나? (처방 ≠ 섭취)</li>
+                  <li>얼마 동안 못 먹었나?</li>
+                  <li>왜 못 먹나? (원인 파악)</li>
+                </ul>
+              </div>
+            </div>
+            <div class="widb-item">
+              <div class="widb-badge widb-badge--d">D</div>
+              <div class="widb-body">
+                <strong>DISEASE — 질환</strong>
+                <ul>
+                  <li>어떤 질환인가?</li>
+                  <li>Acute / chronic?</li>
+                  <li>Inflammation / catabolism은?</li>
+                </ul>
+              </div>
+            </div>
+            <div class="widb-item">
+              <div class="widb-badge widb-badge--b">B</div>
+              <div class="widb-body">
+                <strong>BODY — 신체조성</strong>
+                <ul>
+                  <li>Muscle loss? Fat loss?</li>
+                  <li>Edema / ascites?</li>
+                  <li>Functional decline?</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="card card--caution" style="margin-top:20px">
+            <div class="card__label"><span class="dot"></span>절대 잊지 말아야 할 한 문장</div>
+            <p style="font-size:16px"><strong>Albumin은 malnutrition을 단독으로 진단하는 영양 marker가 아닙니다.</strong> <cite class="ref">(ASPEN)</cite></p>
+          </div>
+
+          <h3>NST Patient Analyzer 업데이트 — Nutrition Assessment 해제</h3>
+
+          <div class="analyzer">
+            <div class="analyzer-item analyzer-item--unlocked">
+              <span class="analyzer-icon">🟢</span>
+              <span class="analyzer-title">Nutrition Assessment (W-I-D-B)</span>
+              <span class="analyzer-badge unlocked">2강 해제</span>
+            </div>
+            <div class="analyzer-item">
+              <span class="analyzer-icon">🔒</span>
+              <span class="analyzer-title">Energy Calculator</span>
+              <span class="analyzer-badge locked">3강에서 해제</span>
+            </div>
+            <div class="analyzer-item">
+              <span class="analyzer-icon">🔒</span>
+              <span class="analyzer-title">Protein Calculator</span>
+              <span class="analyzer-badge locked">3강에서 해제</span>
+            </div>
+            <div class="analyzer-item">
+              <span class="analyzer-icon">🔒</span>
+              <span class="analyzer-title">Fluid Calculator</span>
+              <span class="analyzer-badge locked">3강에서 해제</span>
+            </div>
+            <div class="analyzer-item">
+              <span class="analyzer-icon">🔒</span>
+              <span class="analyzer-title">PN Calculator / GIR</span>
+              <span class="analyzer-badge locked">6·10강에서 해제</span>
+            </div>
+            <div class="analyzer-item">
+              <span class="analyzer-icon">🔒</span>
+              <span class="analyzer-title">Refeeding Checker</span>
+              <span class="analyzer-badge locked">9강에서 해제</span>
+            </div>
+          </div>
+
+          <div class="card card--nst" style="margin-top:24px">
+            <div class="card__label"><span class="dot"></span>3강 예고 — 여기서부터 계산이 시작됩니다</div>
+            <p>68세 남성 / 170 cm / 60 kg / NPO day 5 환자에게 의사가 묻습니다:<br>
+            <strong>"그래서 이 환자한테 하루에 몇 kcal를 줘야 하죠?"</strong></p>
+            <p>3강에서는 에너지·단백질·수분 요구량 계산을 실제 환자에 적용합니다. 어떤 체중을 계산에 넣어야 하는지, AKI·비만·ICU에서 어떻게 달라지는지까지 연결하면서 NST Patient Analyzer의 첫 계산기 3개를 해제합니다.</p>
+          </div>
+
+          <!-- QUIZ PLACEHOLDER: 퀴즈는 추후 추가 예정 -->
+
+        </section>
+
+      </div><!-- /wrap -->
+    </div><!-- /content -->
+  </div><!-- /app -->
+
+  <nav class="bottom-nav">
+    <button class="bn-btn" data-open-toc>☰ 목차</button>
+    <a class="bn-btn" href="lesson-01.html">← 1강</a>
+    <a class="bn-btn" href="../index.html">강의 목록 →</a>
+  </nav>
+
+  <script src="../assets/js/main.js"></script>
+  <script>
+    /* ---- BMI Calculator ---- */
+    (function () {
+      var form = document.getElementById("bmi-calc");
+      if (!form) return;
+      form.querySelector(".calc-btn").addEventListener("click", function () {
+        var h = parseFloat(form.querySelector("[data-field=height]").value);
+        var w = parseFloat(form.querySelector("[data-field=weight]").value);
+        var result = form.querySelector(".calc-result");
+        if (!h || !w || h < 100 || w < 10) {
+          result.className = "calc-result";
+          result.innerHTML = '<div class="calc-result__note">키(cm)와 몸무게(kg)를 입력해주세요.</div>';
+          result.removeAttribute("hidden");
+          return;
+        }
+        var hm = h / 100;
+        var bmi = w / (hm * hm);
+        var cat = bmi < 18.5 ? "저체중" : bmi < 23 ? "정상 (아시아 기준)" : bmi < 25 ? "과체중" : bmi < 30 ? "비만 1단계" : "비만 2단계 이상";
+        var warn = bmi < 18.5 || bmi >= 30;
+        result.className = "calc-result" + (warn ? " calc-result--warn" : "");
+        result.innerHTML =
+          '<div class="calc-result__main">BMI = ' + bmi.toFixed(1) + " kg/m²</div>" +
+          '<div class="calc-result__note">' + cat + "<br>⚠️ BMI는 영양상태 평가의 한 요소일 뿐입니다.</div>";
+        result.removeAttribute("hidden");
+      });
+    })();
+
+    /* ---- Weight Loss Calculator ---- */
+    (function () {
+      var form = document.getElementById("wtloss-calc");
+      if (!form) return;
+      form.querySelector(".calc-btn").addEventListener("click", function () {
+        var uw = parseFloat(form.querySelector("[data-field=usual]").value);
+        var cw = parseFloat(form.querySelector("[data-field=current]").value);
+        var period = form.querySelector("[data-field=period]").value;
+        var result = form.querySelector(".calc-result");
+        var periodLabel = { "1w": "1주", "1m": "1개월", "3m": "3개월", "6m": "6개월", "1y": "1년 이상" };
+        if (!uw || !cw || uw < 10 || cw < 10) {
+          result.className = "calc-result";
+          result.innerHTML = '<div class="calc-result__note">체중을 입력해주세요.</div>';
+          result.removeAttribute("hidden");
+          return;
+        }
+        if (cw >= uw) {
+          result.className = "calc-result";
+          result.innerHTML =
+            '<div class="calc-result__main">체중 유지 또는 증가</div>' +
+            '<div class="calc-result__note">현재 체중 ≥ 평소 체중 — edema, ascites 등으로 실제 tissue 손실이 가려져 있을 수 있습니다.</div>';
+          result.removeAttribute("hidden");
+          return;
+        }
+        var loss = uw - cw;
+        var pct = (loss / uw) * 100;
+        var sig, cls;
+        if (pct >= 10) { sig = "임상적으로 유의미한 체중감소"; cls = " calc-result--warn"; }
+        else if (pct >= 5) { sig = "주의가 필요한 체중감소"; cls = " calc-result--caution"; }
+        else { sig = "경미한 체중감소"; cls = ""; }
+        result.className = "calc-result" + cls;
+        result.innerHTML =
+          '<div class="calc-result__main">' + loss.toFixed(1) + " kg 감소 (" + pct.toFixed(1) + "%)</div>" +
+          '<div class="calc-result__note">기간: ' + (periodLabel[period] || period) + "<br>" + sig + "</div>";
+        result.removeAttribute("hidden");
+      });
+    })();
+
+    /* ---- GLIM Checker ---- */
+    (function () {
+      var phenos = document.querySelectorAll(".glim-pheno input");
+      var etios  = document.querySelectorAll(".glim-etio input");
+      var result = document.getElementById("glim-result");
+      if (!result) return;
+      function update() {
+        var pc = 0, ec = 0;
+        phenos.forEach(function (cb) { if (cb.checked) pc++; });
+        etios.forEach(function (cb) { if (cb.checked) ec++; });
+        if (pc >= 1 && ec >= 1) {
+          result.className = "glim-result glim-result--positive";
+          result.textContent = "⚠️ Phenotypic + Etiologic 기준 충족 — 영양불량 가능성 높음, 세부 평가 및 severity 판정 필요";
+        } else if (pc >= 1 || ec >= 1) {
+          result.className = "glim-result glim-result--partial";
+          result.textContent = "한 가지 축만 충족 — 나머지 기준 추가 확인 필요";
+        } else {
+          result.className = "glim-result";
+          result.textContent = "기준을 선택하면 결과가 표시됩니다.";
+        }
+      }
+      phenos.forEach(function (cb) { cb.addEventListener("change", update); });
+      etios.forEach(function  (cb) { cb.addEventListener("change", update); });
+    })();
+  </script>
+</body>
+</html>

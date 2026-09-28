@@ -12,11 +12,11 @@ window.NST_LESSONS = [
   },
   {
     no: 2,
-    href: "#",
-    title: "영양 Screening & Assessment",
-    desc: "NRS-2002 · SGA · GLIM — 이 환자가 정말 영양불량인가? 체중감소·BMI·섭취량·inflammation·muscle/fat loss·albumin의 올바른 해석",
-    tags: ["NRS-2002", "GLIM", "Albumin", "Malnutrition"],
-    status: "coming"
+    href: "lessons/lesson-02.html",
+    title: "입원환자의 영양 Screening과 Assessment",
+    desc: "NRS-2002 · GLIM · SGA — 이 환자가 정말 영양불량인가? 체중감소·BMI·섭취량·염증·muscle/fat loss·albumin의 올바른 해석과 W-I-D-B 사고법.",
+    tags: ["NRS-2002", "GLIM", "Albumin", "W-I-D-B"],
+    status: "ready"
   },
   {
     no: 3,
