@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3강 · 에너지·단백질·수분 요구량 계산</title>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+
+  <div class="topbar">
+    <button class="hamburger" aria-label="목차 열기" aria-expanded="false"><span></span></button>
+    <div class="topbar__title">3강 · E-P-F 요구량 계산</div>
+  </div>
+  <div class="scrim" aria-hidden="true"></div>
+
+  <div class="app">
+    <aside class="sidebar" aria-label="강의 목차">
+      <div class="sidebar__brand">
+        <div class="sidebar__logo">NST</div>
+        <div class="sidebar__title">NST 영양지원
+          <small>3강 · E-P-F 요구량 계산</small>
+        </div>
+      </div>
+      <nav>
+        <ul class="toc">
+          <li><a href="#intro"><span class="num">1</span> 오늘의 환자</a></li>
+          <li><a href="#three-pillars"><span class="num">2</span> NST 계산의 세 기둥</a></li>
+          <li><a href="#weight-choice"><span class="num">3</span> 어떤 체중을 쓸까?</a></li>
+          <li><a href="#weight-terms"><span class="num">4</span> Weight 용어 + 신뢰도 확인</a></li>
+          <li><a href="#ibw"><span class="num">5</span> IBW — Devine Formula</a></li>
+          <li><a href="#adjbw"><span class="num">6</span> Adjusted Body Weight</a></li>
+          <li><a href="#energy"><span class="num">7</span> Energy 계산</a></li>
+          <li><a href="#protein"><span class="num">8</span> Protein 계산</a></li>
+          <li><a href="#fluid"><span class="num">9</span> Fluid 계산</a></li>
+          <li><a href="#cases"><span class="num">10</span> Case Workshop</a></li>
+          <li><a href="#mistakes"><span class="num">11</span> 흔한 계산 실수</a></li>
+          <li><a href="#summary"><span class="num">12</span> 9단계 + Cheat Sheet</a></li>
+        </ul>
+      </nav>
+      <a class="sidebar__back" href="../index.html">← 강의 목록으로</a>
+    </aside>
+
+    <div class="content">
+      <div class="wrap">
+
+        <header class="lesson-hero">
+          <div class="kicker">NST 영양지원 · 3강</div>
+          <h1>에너지·단백질·수분 요구량 계산</h1>
+          <p>숫자를 외우는 것이 아니라, 어떤 체중으로·어떤 목표로·실제로 얼마나 공급되고 있는지를 체계적으로 파악하는 E-P-F 사고과정을 익힙니다.</p>
+        </header>
+
+        <!-- ===== SECTION 1: 오늘의 환자 ===== -->
+        <section id="intro" class="section">
+          <h2><span class="sec-no">01</span> 오늘의 환자</h2>
+
+          <div class="patient-card">
+            <div class="patient-card__header">
+              <span class="patient-card__icon">👨</span>
+              <div>
+                <div class="patient-card__name">68세 남성</div>
+                <div class="patient-card__dx">Pneumonia · NPO 5일째</div>
+              </div>
+            </div>
+            <div class="patient-card__body">
+              <div class="patient-card__row"><span class="label">Height</span>170 cm</div>
+              <div class="patient-card__row"><span class="label">Current Wt</span>60 kg</div>
+              <div class="patient-card__row"><span class="label">Usual Wt</span>70 kg (3개월 전)</div>
+              <div class="patient-card__row"><span class="label">Edema</span>없음</div>
+            </div>
+          </div>
+
+          <div class="card card--case">
+            <div class="card__label"><span class="dot"></span>담당의의 질문</div>
+            <p style="font-size:16px"><strong>"이 환자 영양을 시작하려는데 하루 몇 kcal, 단백질 몇 g 정도가 필요할까요?"</strong></p>
+          </div>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>이번 강의의 목표</div>
+            <p>숫자를 외우는 것이 아닙니다. 다음 사고과정을 배웁니다.</p>
+          </div>
+
+          <div class="funnel">
+            <div class="funnel-step funnel-step--1">
+              <div class="funnel-step__label">① WEIGHT 결정</div>
+              <div class="funnel-step__q">어떤 체중을 계산에 쓸 것인가?</div>
+            </div>
+            <div class="funnel-arrow">↓</div>
+            <div class="funnel-step funnel-step--2">
+              <div class="funnel-step__label">② E-P-F TARGET</div>
+              <div class="funnel-step__q">Energy / Protein / Fluid 목표 설정</div>
+            </div>
+            <div class="funnel-arrow">↓</div>
+            <div class="funnel-step funnel-step--3">
+              <div class="funnel-step__label">③ TARGET vs ACTUAL</div>
+              <div class="funnel-step__q">실제로 얼마나 공급되고 있는가?</div>
+            </div>
+            <div class="funnel-arrow">↓</div>
+            <div class="funnel-step funnel-step--1">
+              <div class="funnel-step__label">④ 질환·대사상태 수정</div>
+              <div class="funnel-step__q">ICU? 신부전? 비만? Refeeding risk?</div>
+            </div>
+          </div>
+
+          <div class="pearl">ESPEN 일반 입원환자 가이드라인은 대략 25–35 kcal/kg/day, 1.2–1.5 g/kg/day 범위를 언급하지만, 환자군에 따라 목표는 달라집니다. 이 숫자는 '정답표'가 아니라 initial estimate를 만드는 도구입니다. <cite class="ref">(ESPEN)</cite></div>
+        </section>
+
+        <!-- ===== SECTION 2: 세 기둥 ===== -->
+        <section id="three-pillars" class="section">
+          <h2><span class="sec-no">02</span> NST 계산의 세 기둥</h2>
+
+          <p>새 환자를 보면 우선 세 가지 숫자를 만들어야 합니다.</p>
+
+          <div class="epf-cards">
+            <div class="epf-card epf-card--energy">
+              <div class="epf-card__icon">🔥</div>
+              <div class="epf-card__label">ENERGY</div>
+              <div class="epf-card__unit">kcal/day</div>
+            </div>
+            <div class="epf-card epf-card--protein">
+              <div class="epf-card__icon">🧱</div>
+              <div class="epf-card__label">PROTEIN</div>
+              <div class="epf-card__unit">g/day</div>
+            </div>
+            <div class="epf-card epf-card--fluid">
+              <div class="epf-card__icon">💧</div>
+              <div class="epf-card__label">FLUID</div>
+              <div class="epf-card__unit">mL/day</div>
+            </div>
+          </div>
+
+          <p>그리고 그다음부터는 항상 두 열을 비교합니다.</p>
+
+          <div class="tva-grid">
+            <div class="tva-grid__header">
+              <div class="tva-grid__th tva-grid__th--label">항목</div>
+              <div class="tva-grid__th tva-grid__th--target">TARGET</div>
+              <div class="tva-grid__th tva-grid__th--actual">ACTUAL</div>
+            </div>
+            <div class="tva-grid__row">
+              <div class="tva-grid__td tva-grid__td--label">Energy</div>
+              <div class="tva-grid__td">1,500 kcal</div>
+              <div class="tva-grid__td tva-grid__td--q">?</div>
+            </div>
+            <div class="tva-grid__row">
+              <div class="tva-grid__td tva-grid__td--label">Protein</div>
+              <div class="tva-grid__td">72–90 g</div>
+              <div class="tva-grid__td tva-grid__td--q">?</div>
+            </div>
+            <div class="tva-grid__row">
+              <div class="tva-grid__td tva-grid__td--label">Fluid</div>
+              <div class="tva-grid__td">약 1,800 mL</div>
+              <div class="tva-grid__td tva-grid__td--q">?</div>
+            </div>
+          </div>
+
+          <div class="card card--nst">
+            <div class="card__label"><span class="dot"></span>NST 핵심</div>
+            <p>Requirement 계산 자체보다 <strong>Target vs Actual 비교</strong>가 중요합니다.</p>
+          </div>
+        </section>
+
+        <!-- ===== SECTION 3: 어떤 체중? ===== -->
+        <section id="weight-choice" class="section">
+          <h2><span class="sec-no">03</span> 계산 전에 먼저 — 어떤 체중을 쓸 것인가?</h2>
+
+          <p>이 환자들 중 EMR 체중에 <strong>25 kcal/kg</strong>를 바로 곱해도 될까요?</p>
+
+          <div class="compare-grid">
+            <div class="compare-card compare-card--concern">
+              <div class="compare-card__label">🔴 환자 A</div>
+              <div class="compare-card__main">BMI 43</div>
+              <div class="compare-card__sub">160 cm / 110 kg</div>
+            </div>
+            <div class="compare-card compare-card--concern">
+              <div class="compare-card__label">🔴 환자 B</div>
+              <div class="compare-card__main">Ascites</div>
+              <div class="compare-card__sub">간경변 + massive ascites / 체중 75 kg</div>
+            </div>
+            <div class="compare-card compare-card--concern">
+              <div class="compare-card__label">🔴 환자 C</div>
+              <div class="compare-card__main">Edema</div>
+              <div class="compare-card__sub">심부전 / 전신부종 / 체중 82 kg</div>
+            </div>
+          </div>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>항상 그렇지는 않습니다</div>
+            <p>그래서 모든 계산 전에 먼저 결정합니다.</p>
+            <p style="font-size:17px;text-align:center;font-weight:700;color:var(--brand-dark);padding:10px 0">"어떤 weight를 계산에 사용할 것인가?"</p>
+          </div>
+        </section>
+
+        <!-- ===== SECTION 4: Weight 용어 ===== -->
+        <section id="weight-terms" class="section">
+          <h2><span class="sec-no">04</span> Weight 용어 + 신뢰도 확인</h2>
+
+          <div class="table-wrap">
+            <table class="lab-table">
+              <thead>
+                <tr><th>용어</th><th>의미</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>ABW / Actual BW</strong></td><td>현재 실제 측정체중</td></tr>
+                <tr><td><strong>UBW / Usual BW</strong></td><td>평소 체중</td></tr>
+                <tr><td><strong>IBW</strong></td><td>Ideal Body Weight</td></tr>
+                <tr><td><strong>AdjBW</strong></td><td>Adjusted Body Weight</td></tr>
+                <tr><td><strong>Dry weight</strong></td><td>Excess fluid를 제외한 체중 개념</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="card card--caution">
+            <div class="card__label"><span class="dot"></span>⚠️ 약어 주의</div>
+            <p>문헌에 따라 <strong>ABW</strong>가 actual body weight 또는 adjusted body weight 의미로 혼용되기도 합니다. NST 기록에서는 <strong>Actual BW</strong>와 <strong>AdjBW</strong>처럼 명확히 구분해 쓰는 것을 권합니다.</p>
+          </div>
+
+          <h3>Actual BW를 그대로 쓸 수 있는 경우</h3>
+          <p>다음 조건을 모두 만족하면 일반적으로 실제 체중을 이용한 초기 계산이 자연스럽습니다.</p>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>Actual BW 바로 사용 가능</div>
+            <div class="legend" style="margin-top:8px">
+              <span class="chip chip--brand">Edema 없음</span>
+              <span class="chip chip--brand">Ascites 없음</span>
+              <span class="chip chip--brand">Extreme obesity 없음</span>
+              <span class="chip chip--brand">최근 신뢰할 만한 측정</span>
+            </div>
+            <div class="figure" style="margin-top:12px">
+              <div class="figure__title">오늘의 환자 예시</div>
+              <div style="text-align:center;font-size:16px;line-height:2.2">
+                60 kg × 25 kcal/kg/day = <strong style="color:var(--nst-energy);font-size:20px">1,500 kcal/day</strong>
+              </div>
+            </div>
+          </div>
+
+          <h3>멈춰야 하는 상황 — Weight Reliability Check</h3>
+          <p>다음 상황에서는 EMR의 체중 숫자를 그대로 계산기에 넣기 전에 확인합니다.</p>
+
+          <div class="weight-check">
+            <div class="weight-check__title">⚠️ WEIGHT RELIABILITY CHECK</div>
+            <ul>
+              <li>Severe obesity?</li>
+              <li>Edema?</li>
+              <li>Ascites?</li>
+              <li>Large-volume fluid resuscitation?</li>
+              <li>Rapid diuresis?</li>
+              <li>Dialysis patient?</li>
+              <li>Amputation?</li>
+              <li>체중 측정 시점이 오래됐나?</li>
+              <li>실제 측정인가, 환자 진술인가?</li>
+            </ul>
+          </div>
+
+          <div class="pearl">체중은 계산기의 input이기 전에 임상 데이터입니다.</div>
+        </section>
+
+        <!-- ===== SECTION 5: IBW ===== -->
+        <section id="ibw" class="section">
+          <h2><span class="sec-no">05</span> IBW — Ideal Body Weight (Devine Formula)</h2>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>Devine Formula</div>
+            <div class="twopanel" style="margin-top:12px">
+              <div class="panel" style="background:var(--nst-fluid-soft);border-color:var(--nst-fluid)">
+                <h5 style="color:var(--nst-fluid)">남성</h5>
+                <div style="font-size:15px;text-align:center">IBW = 50 kg + 2.3 kg × (inch over 5 ft)</div>
+              </div>
+              <div class="panel" style="background:var(--nst-protein-soft);border-color:var(--nst-protein)">
+                <h5 style="color:var(--nst-protein)">여성</h5>
+                <div style="font-size:15px;text-align:center">IBW = 45.5 kg + 2.3 kg × (inch over 5 ft)</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="figure">
+            <div class="figure__title">계산 예시 — 남성 170 cm</div>
+            <div style="font-size:14px;line-height:2;padding:4px 0">
+              170 cm ≈ 66.9 inch<br>
+              5 ft = 60 inch<br>
+              Inches over 5 ft = 66.9 − 60 = <strong>6.9 inch</strong><br>
+              IBW = 50 + (2.3 × 6.9) = 50 + 15.9 = <strong style="color:var(--brand-dark);font-size:17px">65.9 kg</strong>
+            </div>
+          </div>
+
+          <h3>IBW Calculator</h3>
+
+          <div class="calculator" id="ibw-calc">
+            <div class="calculator__title">IBW 계산기 (Devine)</div>
+            <div class="calc-row">
+              <label>키</label>
+              <input class="calc-input" type="number" data-field="height" placeholder="170" min="140" max="220" />
+              <span class="calc-unit">cm</span>
+            </div>
+            <div class="calc-row">
+              <label>성별</label>
+              <select class="calc-select" data-field="sex">
+                <option value="M">남성</option>
+                <option value="F">여성</option>
+              </select>
+            </div>
+            <button class="calc-btn">계산하기</button>
+            <div class="calc-result" hidden></div>
+          </div>
+
+          <div class="card card--caution" style="margin-top:16px">
+            <div class="card__label"><span class="dot"></span>⚠️ 중요한 점</div>
+            <p>IBW는 생리학적으로 완벽한 '이상적인 체중'을 측정하는 값이 아닙니다. <strong>임상 계산을 위한 reference weight 중 하나</strong>라고 이해하는 것이 좋습니다.</p>
+          </div>
+        </section>
+
+        <!-- ===== SECTION 6: AdjBW ===== -->
+        <section id="adjbw" class="section">
+          <h2><span class="sec-no">06</span> Adjusted Body Weight (AdjBW)</h2>
+
+          <p>비만환자에서는 일부 프로토콜에서 adjusted body weight를 사용합니다.</p>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>대표적인 공식</div>
+            <p style="text-align:center;font-size:16px;margin:10px 0">
+              AdjBW = IBW + <strong>0.25</strong> × (Actual BW − IBW)
+            </p>
+            <p style="font-size:13.5px;color:var(--ink-soft)">기관에 따라 correction factor를 0.4 등으로 사용하기도 합니다.</p>
+          </div>
+
+          <div class="card card--caution">
+            <div class="card__label"><span class="dot"></span>⚠️ 매우 중요 — AdjBW는 만능 공식이 아닙니다</div>
+            <ul class="clean">
+              <li>AdjBW 공식 하나가 모든 환자·모든 영양계산에 적용되는 국제 표준이 아닙니다.</li>
+              <li>어떤 환자군인지, 어떤 guideline인지, energy인지 protein인지에 따라 접근법이 다릅니다.</li>
+              <li>ESPEN hospital nutrition guideline에서도 BMI ≥30인 특정 상황에서 adjusted BW를 이용한 protein 접근을 언급하는 등 obesity에서는 별도 고려가 필요합니다. <cite class="ref">(ESPEN)</cite></li>
+            </ul>
+            <p style="font-weight:700;color:var(--nst-alert)">실무에서는 원내 NST protocol을 우선 확인합니다.</p>
+          </div>
+        </section>
+
+        <!-- ===== SECTION 7: ENERGY ===== -->
+        <section id="energy" class="section">
+          <h2><span class="sec-no">07</span> Energy 요구량 계산</h2>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>공식</div>
+            <p style="text-align:center;font-size:17px;margin:8px 0">
+              Energy = Weight (kg) × kcal/kg/day
+            </p>
+            <p style="text-align:center;font-size:13px;color:var(--ink-faint)">kg × kcal/kg·day = kcal/day (kg 약분됨)</p>
+          </div>
+
+          <h3>Energy Calculator 🔓</h3>
+
+          <div class="calculator" id="energy-calc">
+            <div class="calculator__title">🔥 Energy Calculator</div>
+            <div class="calc-row">
+              <label>체중</label>
+              <input class="calc-input" type="number" data-field="weight" placeholder="60" min="20" max="300" />
+              <span class="calc-unit">kg</span>
+            </div>
+            <div class="calc-row">
+              <label>목표 인자</label>
+              <input class="calc-input" type="number" data-field="factor" placeholder="25" min="15" max="45" step="1" />
+              <span class="calc-unit">kcal/kg/day</span>
+            </div>
+            <button class="calc-btn">계산하기</button>
+            <div class="calc-result" hidden></div>
+            <p style="font-size:12px;color:var(--ink-faint);margin-top:10px">⚠️ Weight-based equation은 추정치입니다. 환자군별 guideline과 임상상태를 확인하세요.</p>
+          </div>
+
+          <h3>Range로 보는 습관 — 60 kg 기준</h3>
+          <p>하나의 숫자가 아니라 범위로 생각하는 것이 더 임상적입니다.</p>
+
+          <div class="range-display" id="energy-range-60">
+            <div class="range-display__title">60 kg 기준 Energy 범위</div>
+            <div class="range-pts">
+              <div class="range-pt">
+                <div class="range-pt__factor">25 kcal/kg</div>
+                <div class="range-pt__bar range-pt__bar--lo"></div>
+                <div class="range-pt__kcal">1,500 kcal</div>
+              </div>
+              <div class="range-pt">
+                <div class="range-pt__factor">30 kcal/kg</div>
+                <div class="range-pt__bar range-pt__bar--mid"></div>
+                <div class="range-pt__kcal">1,800 kcal</div>
+              </div>
+              <div class="range-pt">
+                <div class="range-pt__factor">35 kcal/kg</div>
+                <div class="range-pt__bar range-pt__bar--hi"></div>
+                <div class="range-pt__kcal">2,100 kcal</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="thinking-compare">
+            <div class="thinking-box thinking-box--wrong">
+              <div class="thinking-box__title">❌ 숫자 암기 접근</div>
+              <div class="thinking-step">"이 환자 목표는 1,500 kcal."</div>
+            </div>
+            <div class="thinking-box thinking-box--nst">
+              <div class="thinking-box__title">✓ NST 접근</div>
+              <div class="thinking-step">"1,500–1,800 kcal 범위를 생각하고, 환자 상태에 따라 목표를 정하자."</div>
+            </div>
+          </div>
+
+          <h3>25 kcal/kg가 정답인가?</h3>
+          <p>아닙니다. ESPEN hospital nutrition guideline에서는 일반 입원환자군에 대해 대략 25–35 kcal/kg/day의 범위를 언급합니다. <cite class="ref">(ESPEN)</cite></p>
+          <p>따라서 임상에서는 숫자를 골라 계산하는 것이 목적이 아니라, <strong>"왜 이 환자에게 이 목표를 선택했는가?"</strong>를 설명할 수 있어야 합니다.</p>
+
+          <h3>ICU에서는 특히 주의</h3>
+          <div class="card card--caution">
+            <div class="card__label"><span class="dot"></span>⚠️ ICU + Estimated ≠ Today's Dose</div>
+            <p>60 kg septic shock, ICU day 1. 계산상 60 × 25 = 1,500 kcal가 나왔다고 해서 "오늘부터 1,500 kcal를 다 공급해야 한다"는 뜻이 아닙니다.</p>
+            <p>ESPEN ICU guideline은 predictive equation을 사용하는 경우 급성기 첫 주에는 추정 요구량보다 낮은 공급을 선호하며, 초기부터 추정 요구량 100%를 기계적으로 공급하지 않도록 합니다. <cite class="ref">(ESPEN)</cite></p>
+            <p style="font-size:16px;font-weight:700;text-align:center;padding:10px 0;color:var(--nst-alert)">Estimated requirement ≠ Today's feeding prescription</p>
+          </div>
+
+          <h3>Goal ≠ Starting Dose</h3>
+          <div class="card card--case">
+            <div class="card__label"><span class="dot"></span>CASE</div>
+            <p>60 kg / 7일간 거의 못 먹음 / P 2.0 / K 3.3 / Mg 1.6 / PN 시작 예정</p>
+            <p>Energy goal ≈ 1,500 kcal/day. 그렇다면 Day 1에 PN 1,500 kcal 시작?</p>
+          </div>
+          <div class="card card--caution" style="margin-top:-4px">
+            <div class="card__label"><span class="dot"></span>❌ 반드시 그렇지 않습니다</div>
+            <p>이 환자는 <strong>refeeding syndrome risk</strong>를 먼저 평가해야 합니다. → 9강에서 매우 중요하게 다룹니다.</p>
+          </div>
+
+          <div class="req-stages">
+            <div class="req-stage req-stage--estimated">
+              <div class="req-stage__label">FINAL GOAL</div>
+              <div class="req-stage__val">1,500 kcal</div>
+              <div class="req-stage__bar"><div class="req-stage__fill" style="width:100%"></div></div>
+            </div>
+            <div class="req-stage req-stage--prescribed">
+              <div class="req-stage__label">DAY 1 Rx</div>
+              <div class="req-stage__val">≠ 1,500?</div>
+              <div class="req-stage__bar"><div class="req-stage__fill" style="width:60%"></div></div>
+            </div>
+            <div class="req-stage req-stage--delivered">
+              <div class="req-stage__label">DELIVERED</div>
+              <div class="req-stage__val">실측 필요</div>
+              <div class="req-stage__bar"><div class="req-stage__fill" style="width:40%"></div></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== SECTION 8: PROTEIN ===== -->
+        <section id="protein" class="section">
+          <h2><span class="sec-no">08</span> Protein 요구량 계산</h2>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>공식</div>
+            <p style="text-align:center;font-size:17px;margin:8px 0">
+              Protein = Weight (kg) × g/kg/day
+            </p>
+            <p style="text-align:center;font-size:13px;color:var(--ink-faint)">kg × g/kg·day = g/day (kg 약분됨)</p>
+          </div>
+
+          <div class="figure">
+            <div class="figure__title">60 kg 예시</div>
+            <div style="font-size:14px;line-height:2.4;padding:4px 0">
+              1.2 g/kg/day → 60 × 1.2 = <strong style="color:var(--nst-protein)">72 g/day</strong><br>
+              1.5 g/kg/day → 60 × 1.5 = <strong style="color:var(--nst-protein)">90 g/day</strong>
+            </div>
+            <p style="font-size:13.5px;color:var(--ink-soft)">ESPEN hospital nutrition guideline은 일반 입원환자에서 1.2–1.5 g/kg/day 정도를 언급하며, 고령·질환·염증 등에서 단백질 필요량이 증가할 수 있음을 설명합니다. <cite class="ref">(ESPEN)</cite></p>
+          </div>
+
+          <h3>Protein Calculator 🔓</h3>
+
+          <div class="calculator" id="protein-calc">
+            <div class="calculator__title">🧱 Protein Calculator</div>
+            <div class="calc-row">
+              <label>체중</label>
+              <input class="calc-input" type="number" data-field="weight" placeholder="60" min="20" max="300" />
+              <span class="calc-unit">kg</span>
+            </div>
+            <div class="calc-row">
+              <label>목표 인자</label>
+              <input class="calc-input" type="number" data-field="factor" placeholder="1.2" min="0.5" max="3.0" step="0.1" />
+              <span class="calc-unit">g/kg/day</span>
+            </div>
+            <button class="calc-btn">계산하기</button>
+            <div class="calc-result" hidden></div>
+          </div>
+
+          <h3>Protein ≠ Energy — 항상 두 줄로 본다</h3>
+
+          <div class="compare-grid" style="margin-bottom:0">
+            <div class="compare-card">
+              <div class="compare-card__label">PN A</div>
+              <div class="compare-card__main">1,500 kcal</div>
+              <div class="compare-card__sub">Protein: <strong style="color:var(--nst-alert)">40 g</strong></div>
+            </div>
+            <div class="compare-card">
+              <div class="compare-card__label">PN B</div>
+              <div class="compare-card__main">1,500 kcal</div>
+              <div class="compare-card__sub">Protein: <strong style="color:var(--nst-protein)">80 g</strong></div>
+            </div>
+          </div>
+
+          <p style="text-align:center;font-size:14px;color:var(--ink-soft);margin:8px 0">Energy는 동일 — 단백질은 2배 차이</p>
+
+          <div class="dual-gauge" id="gauge-demo">
+            <div class="gauge-row">
+              <div class="gauge-row__header">
+                <div class="gauge-row__label">🔥 ENERGY</div>
+                <div class="gauge-row__pct" data-gauge-energy>83%</div>
+              </div>
+              <div class="gauge-row__sub">1,500 / 1,800 kcal (PN A 기준)</div>
+              <div class="gauge-bar"><div class="gauge-fill gauge-fill--energy" style="width:83%"></div></div>
+            </div>
+            <div class="gauge-row">
+              <div class="gauge-row__header">
+                <div class="gauge-row__label">🧱 PROTEIN</div>
+                <div class="gauge-row__pct gauge-row__pct--warn" data-gauge-protein>50%</div>
+              </div>
+              <div class="gauge-row__sub">40 / 80 g (PN A 기준)</div>
+              <div class="gauge-bar"><div class="gauge-fill gauge-fill--protein" style="width:50%"></div></div>
+            </div>
+          </div>
+
+          <div class="pearl">"칼로리가 충분하다"는 말이 "영양이 충분하다"는 뜻은 아닙니다.</div>
+
+          <h3>단백질은 질환에 따라 크게 달라진다</h3>
+
+          <div class="funnel">
+            <div class="funnel-step funnel-step--1">
+              <div class="funnel-step__label">Stable patient</div>
+              <div class="funnel-step__q">일반 입원 1.2–1.5 g/kg</div>
+            </div>
+            <div class="funnel-arrow">↓ severity 증가</div>
+            <div class="funnel-step funnel-step--2">
+              <div class="funnel-step__label">Critical illness</div>
+              <div class="funnel-step__q">요구량 증가 가능</div>
+            </div>
+            <div class="funnel-arrow">↓</div>
+            <div class="funnel-step funnel-step--3">
+              <div class="funnel-step__label">AKI / CKD / CRRT?</div>
+              <div class="funnel-step__q">별도 기준 → 11강</div>
+            </div>
+          </div>
+
+          <div class="card card--caution">
+            <div class="card__label"><span class="dot"></span>⚠️ 신질환 = 단백질 줄여야?</div>
+            <p>"Cr이 높으니까 protein을 줄여야지."라고 단순하게 생각하면 위험합니다.</p>
+            <p>ESPEN renal nutrition guideline은 급성/중증 질환과 kidney replacement therapy 여부에 따라 protein 목표가 크게 달라짐을 강조합니다. CRRT 환자에서는 오히려 더 높은 단백질 공급이 필요할 수 있습니다. <cite class="ref">(ESPEN)</cite> → 11강에서 집중 공부합니다.</p>
+          </div>
+
+          <h3>💊 Pharmacist View — PN에서 단백질을 찾는 법</h3>
+          <div class="card card--pharm">
+            <div class="card__label"><span class="dot"></span>PHARMACIST HABIT</div>
+            <div class="figure">
+              <div class="figure__title">계산 예시</div>
+              <div style="font-size:14px;line-height:2.2;padding:4px 0">
+                Amino acid 5% 500 mL<br>
+                = 5 g/100 mL × 500 mL = <strong>25 g</strong> amino acid<br>
+                <br>
+                환자 protein target 75 g/day라면:<br>
+                25 g ÷ 75 g × 100 = <strong style="color:var(--nst-alert)">33.3%</strong> 만 공급
+              </div>
+            </div>
+            <p>PN이 들어간다는 사실보다, <strong>"그 PN에서 실제 amino acid가 몇 g 들어가는가?"</strong>가 중요합니다. 5–6강에서 반복 계산합니다.</p>
+          </div>
+        </section>
+
+        <!-- ===== SECTION 9: FLUID ===== -->
+        <section id="fluid" class="section">
+          <h2><span class="sec-no">09</span> Fluid 요구량 계산</h2>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>기본 추정법</div>
+            <p style="text-align:center;font-size:16px;margin:8px 0">
+              Fluid = Weight (kg) × mL/kg/day
+            </p>
+            <div class="figure" style="margin-top:10px">
+              <div class="figure__title">60 kg 예시 (30 mL/kg/day)</div>
+              <div style="text-align:center;font-size:18px;font-weight:700;color:var(--nst-fluid);padding:8px">60 × 30 = 1,800 mL/day</div>
+            </div>
+          </div>
+
+          <h3>Fluid Calculator 🔓</h3>
+
+          <div class="calculator" id="fluid-calc">
+            <div class="calculator__title">💧 Fluid Calculator</div>
+            <div class="calc-row">
+              <label>체중</label>
+              <input class="calc-input" type="number" data-field="weight" placeholder="60" min="20" max="300" />
+              <span class="calc-unit">kg</span>
+            </div>
+            <div class="calc-row">
+              <label>목표 인자</label>
+              <input class="calc-input" type="number" data-field="factor" placeholder="30" min="20" max="60" step="5" />
+              <span class="calc-unit">mL/kg/day</span>
+            </div>
+            <button class="calc-btn">계산하기</button>
+            <div class="calc-result" hidden></div>
+          </div>
+
+          <div class="card card--caution" style="margin-top:16px">
+            <div class="card__label"><span class="dot"></span>⚠️ Fluid는 가장 조심해야 합니다</div>
+            <p>Energy 계산처럼 "30 mL/kg = 정답"으로 사용하면 안 됩니다. Fluid requirement는 다음 영향을 크게 받습니다.</p>
+            <div class="legend" style="margin-top:8px">
+              <span class="chip chip--alert">Fever</span>
+              <span class="chip chip--alert">Diarrhea/Vomiting</span>
+              <span class="chip chip--alert">Drain/NG suction</span>
+              <span class="chip chip--alert">Polyuria/Oliguria</span>
+              <span class="chip chip--alert">Edema/HF</span>
+              <span class="chip chip--alert">Renal failure</span>
+              <span class="chip chip--alert">Ventilation</span>
+              <span class="chip chip--alert">IV medications</span>
+            </div>
+          </div>
+
+          <h3>Maintenance vs Replacement</h3>
+
+          <div class="twopanel">
+            <div class="panel" style="background:var(--brand-soft);border-color:var(--brand)">
+              <h5 style="color:var(--brand)">Maintenance</h5>
+              <p style="font-size:14px">평소 생리적 필요량</p>
+            </div>
+            <div class="panel" style="background:var(--nst-energy-soft);border-color:var(--nst-energy)">
+              <h5 style="color:var(--nst-energy)">Replacement</h5>
+              <p style="font-size:14px">비정상적으로 잃어버린 수분 보충</p>
+            </div>
+          </div>
+
+          <div class="card card--case">
+            <div class="card__label"><span class="dot"></span>CASE</div>
+            <p>Estimated maintenance: 1,800 mL/day + NG drainage: 800 mL/day</p>
+            <p>→ 이 환자의 fluid 문제를 단순히 1,800 mL/day라고만 생각할 수 없습니다.</p>
+          </div>
+
+          <h3>Hidden Fluid — 약사가 특히 잘 찾아야 합니다</h3>
+          <p>PN 1,000 mL만 보고 "fluid가 부족하다"고 판단하면 완전히 틀릴 수 있습니다.</p>
+
+          <div class="accordion">
+            <button class="accordion__btn">Hidden Fluid 항목 전체 보기<span class="accordion__ico">▾</span></button>
+            <div class="accordion__body" hidden>
+              <div class="legend">
+                <span class="chip chip--brand">PN → obvious fluid</span>
+                <span class="chip chip--brand">Maintenance IV → obvious</span>
+                <span class="chip chip--energy">Antibiotics → carrier volume</span>
+                <span class="chip chip--energy">Electrolyte replacement → dilution</span>
+                <span class="chip chip--energy">IV medication → carrier</span>
+                <span class="chip chip--fluid">EN formula → water content</span>
+                <span class="chip chip--fluid">Tube flush → additional water</span>
+                <span class="chip chip--fluid">Oral → 음료·물</span>
+              </div>
+              <div class="card card--nst" style="margin-top:12px">
+                <div class="card__label"><span class="dot"></span>NST 질문</div>
+                <p>"24시간 동안 환자에게 실제로 몇 mL가 들어갔는가?"</p>
+              </div>
+            </div>
+          </div>
+
+          <h3>Fluid Balance까지 연결</h3>
+          <p>Intake만 보면 부족합니다. I/O + 체중 trend + Edema + Vitals + Renal function을 같이 봅니다.</p>
+
+          <div class="card card--pharm">
+            <div class="card__label"><span class="dot"></span>PHARMACIST VIEW</div>
+            <p>약사는 약물의 diluent volume까지 찾을 수 있다는 점에서 fluid review에 강점이 있습니다.</p>
+            <div class="figure" style="margin-top:10px">
+              <div class="figure__title">예시 — 50 kg 환자</div>
+              <div style="font-size:14px;line-height:2">
+                PN: 1,000 mL<br>
+                Antibiotics: 300 mL<br>
+                KCl replacement: 200 mL<br>
+                IV medication: 150 mL<br>
+                Oral water: 300 mL<br>
+                <strong>Total: 1,950 mL</strong> (추정 1,500 mL 초과)
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== SECTION 10: CASES ===== -->
+        <section id="cases" class="section">
+          <h2><span class="sec-no">10</span> Case Workshop</h2>
+
+          <h3>Case 1 — 기본 계산</h3>
+
+          <div class="patient-card">
+            <div class="patient-card__header">
+              <span class="patient-card__icon">👨</span>
+              <div>
+                <div class="patient-card__name">68세 남성 / 170 cm / 60 kg</div>
+                <div class="patient-card__dx">Pneumonia · Ward · NPO 5일</div>
+              </div>
+            </div>
+            <div class="patient-card__body">
+              <div class="patient-card__row"><span class="label">Hemodynamics</span>Stable</div>
+              <div class="patient-card__row"><span class="label">Edema</span>없음</div>
+            </div>
+          </div>
+
+          <p>초기 reference: Energy 25 kcal/kg / Protein 1.2 g/kg / Fluid 30 mL/kg</p>
+
+          <div class="case-step" style="margin-top:12px">
+            <p><strong>Q1. 목표량을 계산해보세요.</strong></p>
+            <button class="reveal-btn">계산한 뒤 펼치기 ▾</button>
+            <div class="reveal-panel" hidden>
+              <div class="figure">
+                <div class="figure__title">계산 결과</div>
+                <div style="font-size:14px;line-height:2.4">
+                  Energy: 60 × 25 = <strong style="color:var(--nst-energy)">1,500 kcal/day</strong><br>
+                  Protein: 60 × 1.2 = <strong style="color:var(--nst-protein)">72 g/day</strong><br>
+                  Fluid: 60 × 30 = <strong style="color:var(--nst-fluid)">1,800 mL/day</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="case-step" style="margin-top:16px">
+            <p><strong>Q2. 추가정보 확인 후 — 계산대로 오늘 바로 모두 공급해도 될까?</strong></p>
+            <p style="font-size:14px;color:var(--ink-soft)">추가 검사: K 3.3 / Mg 1.6 / P 2.0 / 평소 체중 70 kg → 현재 60 kg (3개월)</p>
+            <button class="reveal-btn">생각한 뒤 펼치기 ▾</button>
+            <div class="reveal-panel" hidden>
+              <div class="card card--caution">
+                <div class="card__label"><span class="dot"></span>아직 결정할 수 없습니다</div>
+                <div class="legend" style="margin-top:8px">
+                  <span class="chip chip--alert">Prolonged poor intake</span>
+                  <span class="chip chip--alert">Significant weight loss (14%)</span>
+                  <span class="chip chip--alert">Low P 2.0</span>
+                  <span class="chip chip--alert">Low K / Mg</span>
+                </div>
+                <p>→ <strong>Refeeding syndrome risk</strong> 평가 필요. 계산된 goal과 실제 Day 1 처방을 분리해야 합니다. <strong>9강에서 이 환자를 다시 만납니다.</strong></p>
+              </div>
+            </div>
+          </div>
+
+          <h3>Case 2 — Hidden Fluid</h3>
+
+          <div class="patient-card">
+            <div class="patient-card__header">
+              <span class="patient-card__icon">👵</span>
+              <div>
+                <div class="patient-card__name">75세 여성 / 50 kg</div>
+                <div class="patient-card__dx">Ward / PN 1,000 mL</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="case-step" style="margin-top:12px">
+            <p><strong>PN 1,000 mL만 보면 fluid가 부족해 보입니다 (추정 1,500 mL). 맞을까요?</strong></p>
+            <button class="reveal-btn">생각한 뒤 펼치기 ▾</button>
+            <div class="reveal-panel" hidden>
+              <div class="figure">
+                <div class="figure__title">전체 IV Intake 확인</div>
+                <div style="font-size:14px;line-height:2">
+                  PN: 1,000 mL<br>
+                  Antibiotics: 300 mL<br>
+                  KCl replacement: 200 mL<br>
+                  IV medication: 150 mL<br>
+                  Oral water: 300 mL<br>
+                  <strong>Total: 1,950 mL</strong>
+                </div>
+              </div>
+              <p>목표 추정치 1,500 mL보다 <strong>전체 intake가 더 많습니다.</strong> PN만 보면 틀립니다.</p>
+            </div>
+          </div>
+
+          <h3>Case 3 — Renal Patient</h3>
+
+          <div class="patient-card">
+            <div class="patient-card__header">
+              <span class="patient-card__icon">👨</span>
+              <div>
+                <div class="patient-card__name">70 kg / AKI</div>
+                <div class="patient-card__dx">Cr 3.8 / Urine 300 mL/day / Edema (+)</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="case-step" style="margin-top:12px">
+            <p><strong>단순 공식: 70 × 30 = 2,100 mL. 이 환자에게 2,100 mL 목표로 공급?</strong></p>
+            <button class="reveal-btn">생각한 뒤 펼치기 ▾</button>
+            <div class="reveal-panel" hidden>
+              <div class="card card--caution">
+                <div class="card__label"><span class="dot"></span>❌ 그렇게 결정하면 안 됩니다</div>
+                <div class="legend" style="margin-top:8px">
+                  <span class="chip chip--alert">Oliguria (urine 300 mL/day)</span>
+                  <span class="chip chip--alert">Edema</span>
+                  <span class="chip chip--alert">AKI</span>
+                </div>
+                <p>Fluid prescription은 renal function, urine output, losses, hemodynamics, dialysis 여부 등을 포함하여 개별화해야 합니다.</p>
+                <p>단백질도 "AKI니까 protein 제한"으로 단순하게 결정하지 않습니다. ESPEN kidney guideline은 AKI/KRT 여부에 따라 protein target을 다르게 제시합니다. → 11강</p>
+              </div>
+            </div>
+          </div>
+
+          <h3>Case 4 — CRRT</h3>
+
+          <div class="case-step">
+            <p><strong>같은 70 kg AKI 환자가 CRRT를 시작했습니다. 단백질을 더 줄여야 할까요?</strong></p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0">
+              <button class="why-btn" data-why="crrt-a">A. CRRT니까 더 줄여야</button>
+              <button class="why-btn" data-why="crrt-b">B. 오히려 늘어야 할 수 있다</button>
+            </div>
+            <div class="why-panel" id="crrt-a" hidden>
+              <div class="card card--caution"><div class="card__label"><span class="dot"></span>❌ 오답</div><p>신장이 나빠졌으니 단백질을 줄여야 한다는 직관은 CRRT에서 맞지 않습니다.</p></div>
+            </div>
+            <div class="why-panel" id="crrt-b" hidden>
+              <div class="card card--pharm"><div class="card__label"><span class="dot"></span>✓ 맞습니다</div><p>CRRT 과정에서 amino acid와 peptide/protein loss가 발생하기 때문에 단백질 요구량이 오히려 증가할 수 있습니다. ESPEN renal guideline은 critically ill 환자의 CKRT 상황에서 높은 단백질 공급 범위를 제시합니다. <cite class="ref">(ESPEN)</cite></p></div>
+            </div>
+          </div>
+
+          <h3>Case 5 — ICU</h3>
+
+          <div class="case-step">
+            <p><strong>60 kg / septic shock / ventilator / ICU day 1. 계산 결과 1,500 kcal. 이 숫자의 의미는?</strong></p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0">
+              <button class="why-btn" data-why="icu-a">A. 오늘 반드시 1,500 kcal 공급</button>
+              <button class="why-btn" data-why="icu-b">B. 대략적인 energy estimate</button>
+              <button class="why-btn" data-why="icu-c">C. PN 1,500 kcal 시작</button>
+              <button class="why-btn" data-why="icu-d">D. 절대적인 energy expenditure</button>
+            </div>
+            <div class="why-panel" id="icu-a" hidden><div class="card card--caution"><div class="card__label"><span class="dot"></span>❌</div><p>중환자 급성기에는 계산된 추정 요구량을 즉시 100% 공급하지 않습니다.</p></div></div>
+            <div class="why-panel" id="icu-b" hidden><div class="card card--pharm"><div class="card__label"><span class="dot"></span>✓ 정답</div><p>Weight-based equation은 추정치일 뿐입니다. ICU에서는 가능하면 indirect calorimetry가 더 적절하며, predictive equation을 사용하는 경우 급성기 초기에는 계산된 목표를 즉시 100% 공급하는 접근을 피합니다. <cite class="ref">(ESPEN)</cite></p></div></div>
+            <div class="why-panel" id="icu-c" hidden><div class="card card--caution"><div class="card__label"><span class="dot"></span>❌</div><p>목표 = 처방 ≠ 옳습니다. 특히 ICU 급성기에서는 단계적 공급이 중요합니다.</p></div></div>
+            <div class="why-panel" id="icu-d" hidden><div class="card card--caution"><div class="card__label"><span class="dot"></span>❌</div><p>체중 기반 공식은 실제 energy expenditure를 측정하는 것이 아니라 추정하는 것입니다.</p></div></div>
+          </div>
+
+          <h3>종합 Mini Case — 72M</h3>
+
+          <div class="patient-card">
+            <div class="patient-card__header">
+              <span class="patient-card__icon">👨‍🦳</span>
+              <div>
+                <div class="patient-card__name">72세 남성 / 168 cm / 62 kg</div>
+                <div class="patient-card__dx">Pneumonia · HD #5 · 평소 체중 69 kg</div>
+              </div>
+            </div>
+            <div class="patient-card__body">
+              <div class="patient-card__section">
+                <div class="patient-card__section-title">현재 공급량</div>
+                <div class="patient-card__row"><span class="label">Oral</span>약 300 kcal / 단백 10 g</div>
+                <div class="patient-card__row"><span class="label">PN</span>900 kcal / 단백 35 g / 1,000 mL</div>
+                <div class="patient-card__row"><span class="label">Other IV</span>500 mL</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="case-step" style="margin-top:12px">
+            <p><strong>초기 목표 (25 kcal/kg, 1.2 g/kg, 30 mL/kg) 기준으로 계산해보세요.</strong></p>
+            <button class="reveal-btn">계산한 뒤 펼치기 ▾</button>
+            <div class="reveal-panel" hidden>
+              <div class="figure">
+                <div class="figure__title">목표 계산 (62 kg 기준)</div>
+                <div style="font-size:14px;line-height:2.4">
+                  Energy: 62 × 25 = <strong style="color:var(--nst-energy)">1,550 kcal/day</strong><br>
+                  Protein: 62 × 1.2 = <strong style="color:var(--nst-protein)">74 g/day</strong><br>
+                  Fluid: 62 × 30 = <strong style="color:var(--nst-fluid)">1,860 mL/day</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="case-step" style="margin-top:14px">
+            <p><strong>실제 공급량과 Achievement를 계산해보세요.</strong></p>
+            <button class="reveal-btn">계산한 뒤 펼치기 ▾</button>
+            <div class="reveal-panel" hidden>
+              <div class="figure">
+                <div class="figure__title">실제 공급량</div>
+                <div style="font-size:14px;line-height:2">
+                  Energy: Oral 300 + PN 900 = <strong>1,200 kcal</strong><br>
+                  Protein: Oral 10 + PN 35 = <strong>45 g</strong><br>
+                  IV Fluid: PN 1,000 + Other 500 = <strong>1,500 mL</strong> (oral 별도)
+                </div>
+              </div>
+              <div class="dual-gauge">
+                <div class="gauge-row">
+                  <div class="gauge-row__header">
+                    <div class="gauge-row__label">🔥 ENERGY</div>
+                    <div class="gauge-row__pct">77%</div>
+                  </div>
+                  <div class="gauge-row__sub">1,200 / 1,550 kcal</div>
+                  <div class="gauge-bar"><div class="gauge-fill gauge-fill--energy" style="width:77%"></div></div>
+                </div>
+                <div class="gauge-row">
+                  <div class="gauge-row__header">
+                    <div class="gauge-row__label">🧱 PROTEIN</div>
+                    <div class="gauge-row__pct gauge-row__pct--warn">61%</div>
+                  </div>
+                  <div class="gauge-row__sub">45 / 74 g</div>
+                  <div class="gauge-bar"><div class="gauge-fill gauge-fill--protein" style="width:61%"></div></div>
+                </div>
+              </div>
+              <div class="card card--nst" style="margin-top:10px">
+                <div class="card__label"><span class="dot"></span>중요한 발견</div>
+                <p>Energy와 protein achievement가 서로 다릅니다. <strong>Protein gap이 상대적으로 더 큽니다.</strong></p>
+                <p>→ "칼로리를 올린다"가 아니라 "어떤 macronutrient를 어떤 route로 보완할 것인가?"로 넘어갑니다. → 4강</p>
+              </div>
+            </div>
+          </div>
+
+          <h3>💊 실제 NST 메모 형태</h3>
+          <div class="snapshot-card">
+            <div class="snapshot-card__title">PHARMACIST ASSESSMENT DRAFT — 72M, Pneumonia</div>
+            <div class="snapshot-row"><span class="label">ENERGY TARGET</span>~1,550 kcal/day</div>
+            <div class="snapshot-row"><span class="label">PROTEIN TARGET</span>~74 g/day</div>
+            <div class="snapshot-row"><span class="label">CURRENT</span>~1,200 kcal/day · protein ~45 g/day</div>
+            <div class="snapshot-row"><span class="label">ACHIEVEMENT</span>energy ~77%, protein ~61%</div>
+            <div class="snapshot-row"><span class="label">NOTE</span>Protein deficit relatively greater than energy deficit</div>
+            <div class="snapshot-alert">⚠ Total fluid I/O requires additional review</div>
+          </div>
+        </section>
+
+        <!-- ===== SECTION 11: 흔한 실수 ===== -->
+        <section id="mistakes" class="section">
+          <h2><span class="sec-no">11</span> 흔한 계산 실수 6가지</h2>
+
+          <div class="accordion">
+            <button class="accordion__btn">⚠️ Mistake 1 — kg와 lb 혼동<span class="accordion__ico">▾</span></button>
+            <div class="accordion__body" hidden>
+              <div class="thinking-compare">
+                <div class="thinking-box thinking-box--wrong"><div class="thinking-box__title">❌</div><div class="thinking-step">Weight 132 lb → 132 kg으로 계산</div></div>
+                <div class="thinking-box thinking-box--nst"><div class="thinking-box__title">✓</div><div class="thinking-step">132 lb ÷ 2.2 ≈ 60 kg</div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <button class="accordion__btn">⚠️ Mistake 2 — cm를 m로 변환 안 하고 BMI 계산<span class="accordion__ico">▾</span></button>
+            <div class="accordion__body" hidden>
+              <p>BMI = kg/m² 입니다. 170 cm → 1.70 m. 170²이 아닌 (1.70)²을 사용합니다.</p>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <button class="accordion__btn">⚠️ Mistake 3 — 잘못된 체중을 무비판적으로 사용<span class="accordion__ico">▾</span></button>
+            <div class="accordion__body" hidden>
+              <p>Edema / ascites / extreme obesity가 있는 환자에서 실제 체중을 그대로 계산에 넣으면 요구량이 크게 틀어집니다.</p>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <button class="accordion__btn">⚠️ Mistake 4 — Energy가 충분하면 protein도 충분하다<span class="accordion__ico">▾</span></button>
+            <div class="accordion__body" hidden>
+              <p>Energy와 protein은 독립적으로 계산합니다. 같은 1,500 kcal PN이라도 AA 40 g인 것과 AA 80 g인 것은 완전히 다릅니다.</p>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <button class="accordion__btn">⚠️ Mistake 5 — PN volume = 하루 총 fluid<span class="accordion__ico">▾</span></button>
+            <div class="accordion__body" hidden>
+              <p>약물 carrier, 수액, EN formula, tube flush, oral까지 모두 합산해야 합니다. PN만 보면 under- 또는 over-estimate 됩니다.</p>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <button class="accordion__btn">⚠️ Mistake 6 — Goal = Day 1 prescription<span class="accordion__ico">▾</span></button>
+            <div class="accordion__body" hidden>
+              <p>특히 ICU와 refeeding-risk 환자에서 계산된 최종 목표를 즉시 100% 처방하면 위험합니다. Target → Starting prescription → Advancement plan을 따로 생각합니다.</p>
+            </div>
+          </div>
+
+          <h3>Speed Drill — 5문제</h3>
+          <div class="speed-drill">
+            <div class="drill-q">
+              <div class="drill-q__no">Q1</div>
+              <div class="drill-q__prompt">60 kg 환자 / Energy target 30 kcal/kg/day</div>
+              <div class="drill-q__formula">60 × 30 = ?</div>
+              <button class="drill-q__btn">정답 확인</button>
+              <div class="drill-q__answer">1,800 kcal/day</div>
+            </div>
+            <div class="drill-q">
+              <div class="drill-q__no">Q2</div>
+              <div class="drill-q__prompt">60 kg 환자 / Protein 1.5 g/kg/day</div>
+              <div class="drill-q__formula">60 × 1.5 = ?</div>
+              <button class="drill-q__btn">정답 확인</button>
+              <div class="drill-q__answer">90 g/day</div>
+            </div>
+            <div class="drill-q">
+              <div class="drill-q__no">Q3</div>
+              <div class="drill-q__prompt">60 kg 환자 / Fluid 30 mL/kg/day</div>
+              <div class="drill-q__formula">60 × 30 = ?</div>
+              <button class="drill-q__btn">정답 확인</button>
+              <div class="drill-q__answer">1,800 mL/day</div>
+            </div>
+            <div class="drill-q">
+              <div class="drill-q__no">Q4</div>
+              <div class="drill-q__prompt">Energy goal 1,800 kcal / 실제 공급 1,200 kcal</div>
+              <div class="drill-q__formula">1200 ÷ 1800 × 100 = ?</div>
+              <button class="drill-q__btn">정답 확인</button>
+              <div class="drill-q__answer">66.7%</div>
+            </div>
+            <div class="drill-q">
+              <div class="drill-q__no">Q5</div>
+              <div class="drill-q__prompt">Protein goal 90 g / 실제 공급 45 g</div>
+              <div class="drill-q__formula">45 ÷ 90 × 100 = ?</div>
+              <button class="drill-q__btn">정답 확인</button>
+              <div class="drill-q__answer">50%</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== SECTION 12: Summary ===== -->
+        <section id="summary" class="section">
+          <h2><span class="sec-no">12</span> NST 9단계 사고과정 + Cheat Sheet</h2>
+
+          <p>숫자를 외우는 것이 아닙니다. 이 흐름이 자동으로 떠올라야 합니다.</p>
+
+          <div class="flow">
+            <div class="flow-step">
+              <div class="flow-step__no">①</div>
+              <div class="flow-step__body"><strong>적절한 WEIGHT 결정</strong><p>Actual BW? IBW? AdjBW? Edema?</p></div>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">
+              <div class="flow-step__no">②</div>
+              <div class="flow-step__body"><strong>ENERGY 추정</strong><p>Weight × kcal/kg/day — Range로 본다</p></div>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">
+              <div class="flow-step__no">③</div>
+              <div class="flow-step__body"><strong>PROTEIN 별도 추정</strong><p>Energy와 독립적으로 계산</p></div>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">
+              <div class="flow-step__no">④</div>
+              <div class="flow-step__body"><strong>FLUID 추정</strong><p>Hidden fluid 포함 — Maintenance vs Replacement</p></div>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">
+              <div class="flow-step__no">⑤</div>
+              <div class="flow-step__body"><strong>실제 공급량 계산</strong><p>모든 route (Oral + EN + PN + IV) 합산</p></div>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">
+              <div class="flow-step__no">⑥</div>
+              <div class="flow-step__body"><strong>TARGET vs ACTUAL 비교</strong><p>Energy %와 Protein % 따로 계산</p></div>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">
+              <div class="flow-step__no">⑦</div>
+              <div class="flow-step__body"><strong>질환·대사상태 확인</strong><p>ICU? AKI? 비만? Refeeding risk?</p></div>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">
+              <div class="flow-step__no">⑧</div>
+              <div class="flow-step__body"><strong>오늘 실제 처방량 결정</strong><p>Goal ≠ Starting dose</p></div>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step flow-step--active">
+              <div class="flow-step__no">⑨</div>
+              <div class="flow-step__body"><strong>RESPONSE monitoring</strong><p>체중 trend, 검사, 임상반응</p></div>
+            </div>
+          </div>
+
+          <div class="card card--caution" style="margin-top:20px">
+            <div class="card__label"><span class="dot"></span>3강 핵심 3문장</div>
+            <p>🔴 Requirement는 추정치이지 절대적인 숫자가 아니다.</p>
+            <p>🔴 Energy가 충분해도 protein은 부족할 수 있다.</p>
+            <p>🔴 Calculated goal과 오늘 시작해야 할 공급량은 같은 개념이 아니다.</p>
+          </div>
+
+          <h3>E-P-F Cheat Sheet</h3>
+
+          <div class="cheatsheet">
+            <div class="cs-item">
+              <div class="cs-item__label">🔥 ENERGY</div>
+              <div class="cs-item__formula">Weight × kcal/kg/day</div>
+              <div class="cs-item__note">= _____ kcal/day</div>
+            </div>
+            <div class="cs-item">
+              <div class="cs-item__label">🧱 PROTEIN</div>
+              <div class="cs-item__formula">Weight × g/kg/day</div>
+              <div class="cs-item__note">= _____ g/day</div>
+            </div>
+            <div class="cs-item">
+              <div class="cs-item__label">💧 FLUID</div>
+              <div class="cs-item__formula">Weight × mL/kg/day</div>
+              <div class="cs-item__note">= _____ mL/day</div>
+            </div>
+          </div>
+
+          <div class="card card--key" style="margin-top:16px">
+            <div class="card__label"><span class="dot"></span>반드시 물어볼 4가지 질문</div>
+            <ul class="clean">
+              <li>① 이 weight가 적절한가? (Edema? Obesity?)</li>
+              <li>② 이 target이 질환에 적절한가? (ICU? AKI? 비만?)</li>
+              <li>③ 실제로 얼마 들어가고 있는가? (Target vs Actual)</li>
+              <li>④ 목표량을 지금 바로 전부 줘도 되는가? (Refeeding risk?)</li>
+            </ul>
+          </div>
+
+          <h3>NST Patient Analyzer 업데이트</h3>
+
+          <div class="analyzer">
+            <div class="analyzer-item analyzer-item--unlocked">
+              <span class="analyzer-icon">🟢</span>
+              <span class="analyzer-title">Nutrition Assessment (W-I-D-B)</span>
+              <span class="analyzer-badge unlocked">2강 해제</span>
+            </div>
+            <div class="analyzer-item analyzer-item--unlocked">
+              <span class="analyzer-icon">🟢</span>
+              <span class="analyzer-title">🔥 Energy Calculator</span>
+              <span class="analyzer-badge unlocked">3강 해제</span>
+            </div>
+            <div class="analyzer-item analyzer-item--unlocked">
+              <span class="analyzer-icon">🟢</span>
+              <span class="analyzer-title">🧱 Protein Calculator</span>
+              <span class="analyzer-badge unlocked">3강 해제</span>
+            </div>
+            <div class="analyzer-item analyzer-item--unlocked">
+              <span class="analyzer-icon">🟢</span>
+              <span class="analyzer-title">💧 Fluid Calculator</span>
+              <span class="analyzer-badge unlocked">3강 해제</span>
+            </div>
+            <div class="analyzer-item">
+              <span class="analyzer-icon">🔒</span>
+              <span class="analyzer-title">EN Calculator</span>
+              <span class="analyzer-badge locked">5강에서 해제</span>
+            </div>
+            <div class="analyzer-item">
+              <span class="analyzer-icon">🔒</span>
+              <span class="analyzer-title">PN Calculator / GIR</span>
+              <span class="analyzer-badge locked">6·10강에서 해제</span>
+            </div>
+            <div class="analyzer-item">
+              <span class="analyzer-icon">🔒</span>
+              <span class="analyzer-title">Refeeding Checker</span>
+              <span class="analyzer-badge locked">9강에서 해제</span>
+            </div>
+          </div>
+
+          <div class="card card--nst" style="margin-top:24px">
+            <div class="card__label"><span class="dot"></span>4강 예고 — Nutrition Route 선택</div>
+            <p>계산은 했습니다. Energy goal 1,550 kcal · Protein 74 g.</p>
+            <p><strong>"그래서 뭘로 줄 것인가?"</strong></p>
+            <p>Oral → EN → PN 선택 기준, GI tract function → aspiration risk → 예상 기간 → EN 가능성 → PN 적응증까지, 실제 환자를 보고 결정하는 Nutrition Route Decision Tree를 완성합니다.</p>
+          </div>
+
+          <!-- QUIZ PLACEHOLDER -->
+
+        </section>
+
+      </div><!-- /wrap -->
+    </div><!-- /content -->
+  </div><!-- /app -->
+
+  <nav class="bottom-nav">
+    <button class="bn-btn" data-open-toc>☰ 목차</button>
+    <a class="bn-btn" href="lesson-02.html">← 2강</a>
+    <a class="bn-btn" href="../index.html">강의 목록 →</a>
+  </nav>
+
+  <script src="../assets/js/main.js"></script>
+  <script>
+    /* ---- IBW Calculator (Devine) ---- */
+    (function () {
+      var form = document.getElementById("ibw-calc");
+      if (!form) return;
+      form.querySelector(".calc-btn").addEventListener("click", function () {
+        var h   = parseFloat(form.querySelector("[data-field=height]").value);
+        var sex = form.querySelector("[data-field=sex]").value;
+        var result = form.querySelector(".calc-result");
+        if (!h || h < 100 || h > 230) {
+          result.className = "calc-result";
+          result.innerHTML = '<div class="calc-result__note">키(cm)를 입력해주세요.</div>';
+          result.removeAttribute("hidden"); return;
+        }
+        var totalInch = h / 2.54;
+        var over5ft   = totalInch - 60;
+        var ibw = sex === "M" ? 50 + 2.3 * over5ft : 45.5 + 2.3 * over5ft;
+        if (ibw < 20) ibw = 20;
+        result.className = "calc-result";
+        result.innerHTML =
+          '<div class="calc-result__main">IBW ≈ ' + ibw.toFixed(1) + " kg</div>" +
+          '<div class="calc-result__note">' + h + " cm = " + totalInch.toFixed(1) + " inch<br>" +
+          "5 ft = 60 inch → " + (over5ft > 0 ? over5ft.toFixed(1) : 0) + " inch over<br>" +
+          (sex === "M" ? "50 + 2.3 × " + (over5ft > 0 ? over5ft.toFixed(1) : "0") : "45.5 + 2.3 × " + (over5ft > 0 ? over5ft.toFixed(1) : "0")) + " = " + ibw.toFixed(1) + " kg</div>";
+        result.removeAttribute("hidden");
+      });
+    })();
+
+    /* ---- Energy Calculator ---- */
+    (function () {
+      var form = document.getElementById("energy-calc");
+      if (!form) return;
+      form.querySelector(".calc-btn").addEventListener("click", function () {
+        var w = parseFloat(form.querySelector("[data-field=weight]").value);
+        var f = parseFloat(form.querySelector("[data-field=factor]").value);
+        var result = form.querySelector(".calc-result");
+        if (!w || !f || w < 10 || f < 10) {
+          result.className = "calc-result";
+          result.innerHTML = '<div class="calc-result__note">체중(kg)과 목표 인자(kcal/kg)를 입력해주세요.</div>';
+          result.removeAttribute("hidden"); return;
+        }
+        var kcal = w * f;
+        var lo = (w * 25).toFixed(0), mid = (w * 30).toFixed(0), hi = (w * 35).toFixed(0);
+        result.className = "calc-result";
+        result.innerHTML =
+          '<div class="calc-result__main">' + kcal.toFixed(0) + " kcal/day</div>" +
+          '<div class="calc-result__note">참고 범위 (25–35 kcal/kg):<br>' +
+          "25 kcal/kg → " + lo + " kcal<br>" +
+          "30 kcal/kg → " + mid + " kcal<br>" +
+          "35 kcal/kg → " + hi + " kcal</div>";
+        result.removeAttribute("hidden");
+      });
+    })();
+
+    /* ---- Protein Calculator ---- */
+    (function () {
+      var form = document.getElementById("protein-calc");
+      if (!form) return;
+      form.querySelector(".calc-btn").addEventListener("click", function () {
+        var w = parseFloat(form.querySelector("[data-field=weight]").value);
+        var f = parseFloat(form.querySelector("[data-field=factor]").value);
+        var result = form.querySelector(".calc-result");
+        if (!w || !f || w < 10 || f < 0.3) {
+          result.className = "calc-result";
+          result.innerHTML = '<div class="calc-result__note">체중(kg)과 목표 인자(g/kg)를 입력해주세요.</div>';
+          result.removeAttribute("hidden"); return;
+        }
+        var g = w * f;
+        var lo = (w * 1.2).toFixed(1), hi = (w * 1.5).toFixed(1);
+        result.className = "calc-result";
+        result.innerHTML =
+          '<div class="calc-result__main">' + g.toFixed(1) + " g/day</div>" +
+          '<div class="calc-result__note">참고 범위 (1.2–1.5 g/kg):<br>' +
+          "1.2 g/kg → " + lo + " g<br>" +
+          "1.5 g/kg → " + hi + " g</div>";
+        result.removeAttribute("hidden");
+      });
+    })();
+
+    /* ---- Fluid Calculator ---- */
+    (function () {
+      var form = document.getElementById("fluid-calc");
+      if (!form) return;
+      form.querySelector(".calc-btn").addEventListener("click", function () {
+        var w = parseFloat(form.querySelector("[data-field=weight]").value);
+        var f = parseFloat(form.querySelector("[data-field=factor]").value);
+        var result = form.querySelector(".calc-result");
+        if (!w || !f || w < 10 || f < 10) {
+          result.className = "calc-result";
+          result.innerHTML = '<div class="calc-result__note">체중(kg)과 목표 인자(mL/kg)를 입력해주세요.</div>';
+          result.removeAttribute("hidden"); return;
+        }
+        var ml = w * f;
+        result.className = "calc-result";
+        result.innerHTML =
+          '<div class="calc-result__main">' + ml.toFixed(0) + " mL/day (" + (ml / 1000).toFixed(2) + " L)</div>" +
+          '<div class="calc-result__note">⚠ 체중 기반 추정치 — Hidden fluid(약물 carrier, EN flush 등) 별도 확인 필요</div>';
+        result.removeAttribute("hidden");
+      });
+    })();
+
+    /* ---- Speed Drill ---- */
+    (function () {
+      document.querySelectorAll(".drill-q").forEach(function (q) {
+        var btn = q.querySelector(".drill-q__btn");
+        var ans = q.querySelector(".drill-q__answer");
+        if (!btn || !ans) return;
+        btn.addEventListener("click", function () {
+          if (ans.classList.contains("show")) {
+            ans.classList.remove("show");
+            btn.textContent = "정답 확인";
+          } else {
+            ans.classList.add("show");
+            btn.textContent = "닫기";
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

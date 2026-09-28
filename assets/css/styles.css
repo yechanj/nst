@@ -946,6 +946,92 @@ ul.clean li::before {
 .compare-card--concern .compare-card__main { color: var(--nst-alert); }
 
 /* =========================================================
+   LESSON 03 — Energy · Protein · Fluid Calculators
+   ========================================================= */
+
+/* EPF 3-pillar cards */
+.epf-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 16px 0; }
+.epf-card { background: var(--surface-2); border-radius: 12px; padding: 14px 10px; text-align: center; border-top: 3px solid transparent; }
+.epf-card--energy  { border-top-color: var(--nst-energy); }
+.epf-card--protein { border-top-color: var(--nst-protein); }
+.epf-card--fluid   { border-top-color: var(--nst-fluid); }
+.epf-card__icon  { font-size: 22px; line-height: 1; }
+.epf-card__label { font-weight: 700; font-size: 11px; letter-spacing: .07em; margin: 6px 0 2px; text-transform: uppercase; }
+.epf-card__unit  { font-size: 11px; color: var(--ink-faint); }
+
+/* Target vs Actual grid */
+.tva-grid { border-radius: 12px; overflow: hidden; border: 1px solid var(--line); margin: 14px 0; }
+.tva-grid__header { display: grid; grid-template-columns: auto 1fr 1fr; background: var(--surface-2); }
+.tva-grid__th { padding: 10px 14px; font-weight: 700; font-size: 12.5px; letter-spacing: .05em; }
+.tva-grid__th--label { color: var(--ink-faint); border-right: 1px solid var(--line); }
+.tva-grid__th--target { color: var(--brand); border-right: 1px solid var(--line); }
+.tva-grid__th--actual { color: var(--nst-energy); }
+.tva-grid__row { display: grid; grid-template-columns: auto 1fr 1fr; border-top: 1px solid var(--line); }
+.tva-grid__td { padding: 10px 14px; font-size: 14px; }
+.tva-grid__td--label { font-weight: 700; color: var(--ink-faint); font-size: 13px; border-right: 1px solid var(--line); white-space: nowrap; }
+.tva-grid__td--target { border-right: 1px solid var(--line); }
+.tva-grid__td--q { color: var(--ink-faint); font-style: italic; }
+
+/* Energy range display */
+.range-display { background: var(--surface-2); border-radius: 12px; padding: 16px 16px 20px; margin: 16px 0; }
+.range-display__title { font-size: 13px; font-weight: 700; color: var(--ink-faint); margin-bottom: 14px; letter-spacing: .05em; text-transform: uppercase; }
+.range-pts { display: flex; justify-content: space-between; align-items: flex-end; gap: 4px; }
+.range-pt { flex: 1; text-align: center; }
+.range-pt__factor { font-size: 13px; color: var(--ink-soft); margin-bottom: 4px; }
+.range-pt__bar { background: var(--brand); border-radius: 4px 4px 0 0; margin: 0 auto; width: 60%; transition: height .35s ease; }
+.range-pt__bar--lo  { height: 36px; opacity: .5; }
+.range-pt__bar--mid { height: 54px; opacity: .75; }
+.range-pt__bar--hi  { height: 72px; }
+.range-pt__kcal { font-weight: 700; font-size: 14px; color: var(--brand-dark); margin-top: 4px; }
+.range-track-row { display: flex; align-items: center; gap: 0; margin: 4px 0 8px; }
+.range-track-line { flex: 1; height: 2px; background: var(--brand); opacity: .3; }
+
+/* Dual gauge (Energy + Protein achievement) */
+.dual-gauge { display: flex; flex-direction: column; gap: 12px; margin: 16px 0; }
+.gauge-row { background: var(--surface-2); border-radius: 10px; padding: 12px 14px; }
+.gauge-row__header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px; }
+.gauge-row__label { font-weight: 700; font-size: 14px; }
+.gauge-row__pct   { font-weight: 700; font-size: 18px; }
+.gauge-row__pct--warn { color: var(--nst-alert); }
+.gauge-row__sub   { font-size: 12px; color: var(--ink-faint); margin-bottom: 8px; }
+.gauge-bar  { height: 10px; background: var(--line); border-radius: 5px; overflow: hidden; }
+.gauge-fill { height: 100%; border-radius: 5px; transition: width .4s ease; }
+.gauge-fill--energy  { background: var(--nst-energy); }
+.gauge-fill--protein { background: var(--nst-protein); }
+
+/* Req stages: Estimated → Prescribed → Delivered */
+.req-stages { display: flex; flex-direction: column; gap: 0; margin: 16px 0; }
+.req-stage { display: grid; grid-template-columns: 90px 80px 1fr; align-items: center; gap: 12px; padding: 12px 16px; background: var(--surface-2); }
+.req-stage:first-child { border-radius: 12px 12px 0 0; }
+.req-stage:last-child  { border-radius: 0 0 12px 12px; }
+.req-stage + .req-stage { border-top: 1px solid var(--line); }
+.req-stage__label { font-size: 11.5px; font-weight: 700; color: var(--ink-faint); letter-spacing: .04em; text-transform: uppercase; }
+.req-stage__val   { font-weight: 700; font-size: 15px; }
+.req-stage__bar   { height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
+.req-stage__fill  { height: 100%; border-radius: 4px; }
+.req-stage--estimated .req-stage__fill  { background: var(--brand); width: 100%; }
+.req-stage--prescribed .req-stage__fill { background: var(--nst-energy); }
+.req-stage--delivered  .req-stage__fill { background: var(--nst-protein); }
+
+/* Weight reliability checklist */
+.weight-check { background: var(--nst-alert-soft); border: 1px solid var(--nst-alert); border-radius: 12px; padding: 14px 16px; margin: 14px 0; }
+.weight-check__title { font-size: 13px; font-weight: 700; color: var(--nst-alert); margin-bottom: 10px; letter-spacing: .04em; }
+.weight-check ul { margin: 0; padding: 0; list-style: none; }
+.weight-check li { padding: 5px 0 5px 22px; position: relative; font-size: 14px; border-bottom: 1px dashed rgba(229,72,77,.2); }
+.weight-check li:last-child { border-bottom: none; }
+.weight-check li::before { content: "□"; position: absolute; left: 0; color: var(--nst-alert); }
+
+/* Speed drill */
+.speed-drill { display: flex; flex-direction: column; gap: 14px; margin: 16px 0; }
+.drill-q { background: var(--surface-2); border-radius: 10px; padding: 14px 16px; }
+.drill-q__no  { font-size: 12px; font-weight: 700; color: var(--ink-faint); margin-bottom: 6px; letter-spacing: .06em; }
+.drill-q__prompt { font-weight: 700; font-size: 15px; margin-bottom: 6px; }
+.drill-q__formula { text-align: center; font-size: 15px; color: var(--ink-soft); margin: 8px 0; padding: 8px; background: var(--surface); border-radius: 6px; }
+.drill-q__btn { background: transparent; border: 1px solid var(--line); border-radius: 6px; padding: 6px 14px; font-size: 13px; cursor: pointer; color: var(--ink-soft); margin-top: 4px; }
+.drill-q__answer { display: none; background: var(--brand-soft); border-radius: 6px; padding: 10px 14px; margin-top: 8px; font-weight: 700; font-size: 16px; color: var(--brand-dark); text-align: center; }
+.drill-q__answer.show { display: block; }
+
+/* =========================================================
    RESPONSIVE — 모바일 860px 기준
    ========================================================= */
 @media (max-width: 860px) {
@@ -964,6 +1050,7 @@ ul.clean li::before {
 
   .twopanel   { grid-template-columns: 1fr; }
   .team-grid  { grid-template-columns: 1fr 1fr; }
+  .req-stage  { grid-template-columns: 80px 70px 1fr; }
   .route-branch { grid-template-columns: 1fr; }
   .thinking-compare { grid-template-columns: 1fr; }
   .goal-bar-row { grid-template-columns: 50px 1fr 110px; }
@@ -971,6 +1058,7 @@ ul.clean li::before {
 
 @media (max-width: 480px) {
   .team-grid  { grid-template-columns: 1fr; }
+  .epf-cards  { grid-template-columns: 1fr 1fr 1fr; }
   .cheatsheet { grid-template-columns: 1fr; }
   .goal-bar-row { grid-template-columns: 50px 1fr; }
   .goal-bar-value { display: none; }

@@ -20,11 +20,11 @@ window.NST_LESSONS = [
   },
   {
     no: 3,
-    href: "#",
-    title: "에너지 · 단백질 · 수액 요구량 계산",
-    desc: "kcal/kg 접근법, Penn State 공식, 단백질 목표, 수액 요구량. 비만·신부전·중환자에서 목표 설정이 달라지는 이유.",
-    tags: ["Energy", "Protein", "Fluid", "Calculator"],
-    status: "coming"
+    href: "lessons/lesson-03.html",
+    title: "에너지 · 단백질 · 수분 요구량 계산",
+    desc: "어떤 체중을 계산에 쓸까? Energy·Protein·Fluid 계산기, Target vs Actual 비교, Goal ≠ Starting Dose — NST 9단계 사고과정.",
+    tags: ["Energy", "Protein", "Fluid", "IBW", "Target vs Actual"],
+    status: "ready"
   },
   {
     no: 4,
